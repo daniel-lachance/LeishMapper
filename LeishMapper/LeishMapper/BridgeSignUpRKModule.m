@@ -118,7 +118,7 @@
             [SBBComponent(SBBAuthManager) signUpWithEmail: email
                                                  username: email
                                                  password: password
-                                               completion: ^(NSURLSessionDataTask * __unused task,
+                                               completion: ^(NSURLSessionTask * __unused task,
                                                              id __unused responseObject,
                                                              NSError *error) {
                  dispatch_async(dispatch_get_main_queue(),^{

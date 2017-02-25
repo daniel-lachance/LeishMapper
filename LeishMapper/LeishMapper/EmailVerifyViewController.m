@@ -192,7 +192,7 @@ typedef void (^APCAlertDismisser) (void);
     
     AppDelegate *ad = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     profile.email = ad.user.bridgeSignInEmail;
-    profile.username = ad.user.bridgeSignInEmail;
+    //profile.username = ad.user.bridgeSignInEmail;
     profile.firstName = ad.user.firstName;
     profile.lastName = ad.user.lastName;
     
@@ -286,7 +286,7 @@ typedef void (^APCAlertDismisser) (void);
     AppDelegate *ad = (AppDelegate *)[[UIApplication sharedApplication] delegate];
         [SBBComponent(SBBAuthManager) signInWithUsername: ad.user.bridgeSignInEmail
                                                 password: ad.user.bridgeSignInPassword
-                                              completion: ^(NSURLSessionDataTask * __unused task,
+                                              completion: ^(NSURLSessionTask * __unused task,
                                                             id responseObject,
                                                             NSError *signInError)
          {
@@ -336,7 +336,7 @@ typedef void (^APCAlertDismisser) (void);
         if (email.length > 0)
         {
             [SBBComponent(SBBAuthManager) resendEmailVerification:email
-                                                       completion: ^(NSURLSessionDataTask * __unused task,id __unused responseObject,NSError *error){
+                                                       completion: ^(NSURLSessionTask * __unused task,id __unused responseObject,NSError *error){
                                                            if (!error)
                                                            {
                                                                NSLog(@"Bridge Server Asked to resend email verification email");

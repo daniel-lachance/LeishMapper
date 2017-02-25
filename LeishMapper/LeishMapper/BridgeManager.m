@@ -121,7 +121,7 @@
             {
                 [SBBComponent(SBBAuthManager) signInWithUsername: ad.user.bridgeSignInEmail
                                                         password: ad.user.bridgeSignInPassword
-                                                      completion: ^(NSURLSessionDataTask * __unused task,
+                                                      completion: ^(NSURLSessionTask * __unused task,
                                                                     id responseObject,
                                                                     NSError *signInError)
                  {
@@ -163,7 +163,7 @@
     
     AppDelegate *ad = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     if (ad.user.bridgeSignInEmail) {profile.email = ad.user.bridgeSignInEmail;}
-    if (ad.user.bridgeSignInEmail) {profile.username = ad.user.bridgeSignInEmail;}
+    //if (ad.user.bridgeSignInEmail) {profile.username = ad.user.bridgeSignInEmail;}
     if (ad.user.firstName) {profile.firstName = ad.user.firstName;}
     if (ad.user.lastName) {profile.lastName = ad.user.lastName;}
     
@@ -220,7 +220,7 @@
             {
                 [SBBComponent(SBBAuthManager) signInWithUsername: ad.user.bridgeSignInEmail
                                                         password: ad.user.bridgeSignInPassword
-                                                      completion: ^(NSURLSessionDataTask * __unused task,
+                                                      completion: ^(NSURLSessionTask * __unused task,
                                                                     id responseObject,
                                                                     NSError *signInError)
                  {
@@ -272,7 +272,7 @@
             {
                 [SBBComponent(SBBAuthManager) signInWithUsername: ad.user.bridgeSignInEmail
                                                         password: ad.user.bridgeSignInPassword
-                                                      completion: ^(NSURLSessionDataTask * __unused task,
+                                                      completion: ^(NSURLSessionTask * __unused task,
                                                                     id responseObject,
                                                                     NSError *signInError)
                  {
@@ -320,7 +320,7 @@
             {
                 [SBBComponent(SBBAuthManager) signInWithUsername: ad.user.bridgeSignInEmail
                                                         password: ad.user.bridgeSignInPassword
-                                                      completion: ^(NSURLSessionDataTask * __unused task,
+                                                      completion: ^(NSURLSessionTask * __unused task,
                                                                     id responseObject,
                                                                     NSError *signInError)
                  {
@@ -372,7 +372,7 @@
                 {
                     [SBBComponent(SBBAuthManager) signInWithUsername: ad.user.bridgeSignInEmail
                                                             password: ad.user.bridgeSignInPassword
-                                                          completion: ^(NSURLSessionDataTask * __unused task,
+                                                          completion: ^(NSURLSessionTask * __unused task,
                                                                         id responseObject,
                                                                         NSError *signInError)
                      {
@@ -423,7 +423,7 @@
                 {
                     [SBBComponent(SBBAuthManager) signInWithUsername: ad.user.bridgeSignInEmail
                                                             password: ad.user.bridgeSignInPassword
-                                                          completion: ^(NSURLSessionDataTask * __unused task,
+                                                          completion: ^(NSURLSessionTask * __unused task,
                                                                         id responseObject,
                                                                         NSError *signInError)
                      {
@@ -473,7 +473,7 @@
             {
                 [SBBComponent(SBBAuthManager) signInWithUsername: ad.user.bridgeSignInEmail
                                                         password: ad.user.bridgeSignInPassword
-                                                      completion: ^(NSURLSessionDataTask * __unused task,
+                                                      completion: ^(NSURLSessionTask * __unused task,
                                                                     id responseObject,
                                                                     NSError *signInError)
                  {
