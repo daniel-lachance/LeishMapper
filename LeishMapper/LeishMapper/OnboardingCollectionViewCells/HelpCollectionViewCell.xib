@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="HelpCollectionViewCell" id="gTV-IL-0wX" customClass="HelpCollectionViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="291"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="291"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Would you like to help our research?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FsS-ZZ-Ovm">
+                        <rect key="frame" x="45" y="110" width="229" height="71"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="71" id="hjc-WM-qtR"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap Join Study to learn about this research study run by OHSU or tap &quot;Not ready&quot; to begin mapping" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QT4-iz-EeG">
+                        <rect key="frame" x="8" y="188" width="304" height="95"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="320" id="hAr-AE-EnI"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="hAr-AE-EnI"/>
+                            </mask>
+                        </variation>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="ohsuLogoSquare" translatesAutoresizingMaskIntoConstraints="NO" id="fWn-Ss-D7P">
+                        <rect key="frame" x="36" y="8" width="248" height="92"/>
+                        <constraints>
+                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="304" id="Dmf-I1-8O1"/>
+                            <constraint firstAttribute="width" constant="304" id="O08-nB-9Vs"/>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="304" id="VrY-hG-T31"/>
+                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="280" id="wFB-7K-Nid"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="O08-nB-9Vs"/>
+                                <exclude reference="VrY-hG-T31"/>
+                            </mask>
+                        </variation>
+                    </imageView>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            </view>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="QT4-iz-EeG" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="9Fy-hq-7a1"/>
+                <constraint firstItem="FsS-ZZ-Ovm" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="45" id="ADH-ZK-2xo"/>
+                <constraint firstAttribute="bottom" secondItem="QT4-iz-EeG" secondAttribute="bottom" constant="8" id="JeL-QM-K2z"/>
+                <constraint firstItem="FsS-ZZ-Ovm" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="Lpw-J0-IqG"/>
+                <constraint firstItem="fWn-Ss-D7P" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leadingMargin" id="U42-gg-jUT"/>
+                <constraint firstItem="QT4-iz-EeG" firstAttribute="top" secondItem="FsS-ZZ-Ovm" secondAttribute="bottom" constant="7" id="Vgw-5d-LvL"/>
+                <constraint firstItem="FsS-ZZ-Ovm" firstAttribute="top" secondItem="fWn-Ss-D7P" secondAttribute="bottom" constant="10" id="Vzy-7O-zfM"/>
+                <constraint firstItem="fWn-Ss-D7P" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="topMargin" id="Zu2-jm-2cG"/>
+                <constraint firstAttribute="trailing" secondItem="FsS-ZZ-Ovm" secondAttribute="trailing" constant="46" id="jwP-VN-xoh"/>
+                <constraint firstAttribute="trailing" secondItem="QT4-iz-EeG" secondAttribute="trailing" constant="8" id="oPr-ak-uNi"/>
+                <constraint firstItem="QT4-iz-EeG" firstAttribute="centerX" secondItem="fWn-Ss-D7P" secondAttribute="centerX" id="qYo-RC-teR"/>
+            </constraints>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="U42-gg-jUT"/>
+                </mask>
+            </variation>
+            <point key="canvasLocation" x="514" y="368.5"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="ohsuLogoSquare" width="450" height="450"/>
+    </resources>
+</document>
