@@ -105,6 +105,9 @@
 
 -(void)showCorrectOnboardingScreenOrBodyMap
 {
+    [self showBodyMap];
+    
+    /*
     if ([self shouldShowReconsentScreen])
     {
         [self showReconsentScreen];
@@ -118,6 +121,8 @@
         }
         else if ([self shouldShowOnboarding])
         {
+            */
+            //Below will normally be commented out in a normal run environment
             /*This is a series of tracked booleans in NSUserDefaults that will switch on
             as each step is completed, and then the previous step will be turned off,
             thus allowing the state to be 'saved' if the user opts out at any point
@@ -129,6 +134,8 @@
              [ud setBool:NO forKey:@"shouldShowConsent"];
              [ud setBool:NO forKey:@"shouldShowBridgeSignup"];
              [ud setBool:NO forKey:@"shouldShowInitialSurvey"];*/
+    
+    /*
             [self showOnboarding];
         }
         else
@@ -136,6 +143,7 @@
             [self showBodyMap];
         }
     }
+*/
 }
 
 //Primarily used for reset or debugging
