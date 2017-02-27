@@ -85,7 +85,7 @@
     }
     
     
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     [appDelegate saveContext];
     
     return mole;

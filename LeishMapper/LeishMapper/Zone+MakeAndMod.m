@@ -146,7 +146,7 @@
         zone = [matches lastObject];
     }
     
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     [appDelegate saveContext];
     
     return zone;
@@ -165,7 +165,7 @@
     {
         [context deleteObject:mole];
     }
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     [appDelegate saveContext];
 }
 

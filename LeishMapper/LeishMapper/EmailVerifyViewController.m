@@ -331,7 +331,7 @@ typedef void (^APCAlertDismisser) (void);
         {*/
     [self showSpinnerAndThenDoThis:^{
    
-        AppDelegate *ad = [[UIApplication sharedApplication] delegate];
+        AppDelegate *ad = (AppDelegate *)[[UIApplication sharedApplication] delegate];
         NSString *email = ad.user.bridgeSignInEmail;
         if (email.length > 0)
         {

@@ -352,7 +352,7 @@
                     firstName = signatureResult.signature.givenName;
                     lastName = signatureResult.signature.familyName;
                     
-                    AppDelegate *ad = [UIApplication sharedApplication].delegate;
+                    AppDelegate *ad = (AppDelegate *)[UIApplication sharedApplication].delegate;
                     ad.user.signatureImage = signatureResult.signature.signatureImage;
                 }
             }

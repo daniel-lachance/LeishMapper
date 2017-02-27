@@ -59,7 +59,7 @@
 - (IBAction)leaveStudyPressed:(id)sender
 {
     //mimick what happens when leave study from Profile
-    AppDelegate *ad = [[UIApplication sharedApplication] delegate];
+    AppDelegate *ad = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
     
     UIAlertController *leaveStudy = [UIAlertController alertControllerWithTitle:@"Leave Study" message:@"Are you sure you want to leave the study?\nThis action cannot be undone and you will need to provide consent in order to re-enroll." preferredStyle:UIAlertControllerStyleActionSheet];
