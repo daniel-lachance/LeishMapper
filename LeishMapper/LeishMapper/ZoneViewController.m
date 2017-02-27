@@ -957,7 +957,7 @@
         if (molePinToDelete.mole)
         {
             [self.context deleteObject:molePinToDelete.mole]; // remove from persistant store
-            AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+            AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
             [appDelegate saveContext];
         }
         

@@ -1068,7 +1068,7 @@ http://stackoverflow.com/questions/6821517/save-an-image-to-application-document
     if (self.measurement)
     {
         [self.context deleteObject:self.measurement];
-        AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+        AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
         [appDelegate saveContext];
         //reset the measurement here for the automatic save that takes place on viewWillDisappear
         self.measurement = [Measurement getMostRecentMoleMeasurementForMole:self.mole withContext:self.context];
