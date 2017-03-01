@@ -8,7 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+// iOS 10+ expects CAAnimationDelegate to be set explicitly.
+#if __IPHONE_OS_VERSION_MAX_ALLOWED < 100000
 @interface UAProgressView : UIView
+#else
+@interface UAProgressView : UIView <CAAnimationDelegate>
+#endif
 
 /**
  *  Called when the progress view is filled with tintColor, or removed
