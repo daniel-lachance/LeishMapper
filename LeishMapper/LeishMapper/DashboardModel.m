@@ -114,11 +114,16 @@
     
     int numberOfMolesMeasuredSinceLastFollowup = 0;
     NSDate *now = [NSDate date];
-    NSDate *lastTimeAsurveyWasTaken;
-    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
-    lastTimeAsurveyWasTaken = [ud valueForKey:@"dateOfLastSurveyCompleted"];
+    NSInteger numberOfDaysBetweenNowAndLastFollowup = 0;
+    NSDate *lastTimeAsurveyWasTaken = [[NSUserDefaults standardUserDefaults] valueForKey:@"dateOfLastSurveyCompleted"];
     
-    NSInteger numberOfDaysBetweenNowAndLastFollowup = [self daysBetweenDate:now andDate:lastTimeAsurveyWasTaken];
+    if (lastTimeAsurveyWasTaken == nil) {
+        // survey was never taken
+        numberOfDaysBetweenNowAndLastFollowup = 0;
+    } else {
+        numberOfDaysBetweenNowAndLastFollowup = [self daysBetweenDate:now andDate:lastTimeAsurveyWasTaken];
+    }
+    
     if (numberOfDaysBetweenNowAndLastFollowup > numberOfDaysInFollowupPeriod)
     {
         //Since the followup period changes every 30 days, if that amount of time has elapsed, reset
@@ -193,12 +198,16 @@
 -(NSNumber *)daysUntilNextMeasurementPeriod
 {
     NSDate *now = [NSDate date];
-    NSDate *lastTimeAsurveyWasTaken;
+    NSInteger daysSinceLastSurvey = 0;
+    NSDate *lastTimeAsurveyWasTaken = [[NSUserDefaults standardUserDefaults] valueForKey:@"dateOfLastSurveyCompleted"];
+
+    if (lastTimeAsurveyWasTaken == nil) {
+        // survey was never taken
+        daysSinceLastSurvey = 0;
+    } else {
+        daysSinceLastSurvey = [self daysBetweenDate:lastTimeAsurveyWasTaken andDate:now];
+    }
     
-    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
-    lastTimeAsurveyWasTaken = [ud valueForKey:@"dateOfLastSurveyCompleted"];
-    
-    NSInteger daysSinceLastSurvey = [self daysBetweenDate:lastTimeAsurveyWasTaken andDate:now];
     NSInteger daysUntilNextMeasurementPeriod = daysSinceLastSurvey % numberOfDaysInFollowupPeriod;
     daysUntilNextMeasurementPeriod = numberOfDaysInFollowupPeriod - daysUntilNextMeasurementPeriod;
     NSNumber *returnValue = [NSNumber numberWithInteger:daysUntilNextMeasurementPeriod];

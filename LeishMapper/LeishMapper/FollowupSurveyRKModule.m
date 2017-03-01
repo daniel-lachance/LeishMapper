@@ -54,19 +54,24 @@
     BOOL shouldShowFollowupSurvey = NO;
     
     NSDate *now = [NSDate date];
+    NSInteger daysSinceLastSurvey = 0;
+    NSDate *lastTimeAsurveyWasTaken = [[NSUserDefaults standardUserDefaults] valueForKey:@"dateOfLastSurveyCompleted"];
     
-    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
-    NSDate *lastTimeAsurveyWasTaken = [ud valueForKey:@"dateOfLastSurveyCompleted"];
-    
-    NSNumber *daysSinceLastSurvey = [NSNumber numberWithInteger:[self daysBetweenDate:lastTimeAsurveyWasTaken andDate:now]];
-    NSLog(@"It has been %@ days since the last survey was taken",daysSinceLastSurvey);
+    if (lastTimeAsurveyWasTaken == nil) {
+        // survey was never taken
+        daysSinceLastSurvey = 0;
+    } else {
+        daysSinceLastSurvey = [self daysBetweenDate:lastTimeAsurveyWasTaken andDate:now];
+    }
+
+    NSLog(@"It has been %ld days since the last survey was taken",(long)daysSinceLastSurvey);
     
     AppDelegate *ad = (AppDelegate *)[UIApplication sharedApplication].delegate;
     if (ad.user.hasEnrolled == NO)
     {
         return NO;
     }
-    if ([daysSinceLastSurvey intValue] >= numberOfDaysInFollowupPeriod)
+    if (daysSinceLastSurvey >= numberOfDaysInFollowupPeriod)
     {
         shouldShowFollowupSurvey = YES;
     }
