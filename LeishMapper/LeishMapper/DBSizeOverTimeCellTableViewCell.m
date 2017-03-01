@@ -77,7 +77,7 @@
     }
     else if ([percentChange floatValue] == 0)
     {
-        _arrowImageView.image = [UIImage imageNamed:@""];
+        _arrowImageView.image = nil;
     }
     
     
