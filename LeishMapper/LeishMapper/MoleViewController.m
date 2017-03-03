@@ -270,7 +270,8 @@
     //You are about to leave after your first measurement
     if ([ud objectForKey:@"showDemoInfo"] == [NSNumber numberWithBool:YES] && self.measurement)
     {
-        [self showMonitorPopup:self];
+        //Disabled because this is so highly specific for Mole Mapper-related function
+        //[self showMonitorPopup:self];
     }
     else
     {
@@ -443,7 +444,7 @@
 {
     UIView *contentView = [DemoKLCPopupHelper contentViewForDemo];
     NSString *headerText = @"Step 2: Measure it";
-    NSString *descriptionText = @"Take a close-up photo of one mole next to a reference item like a coin";
+    NSString *descriptionText = @"Take a close-up photo of one lesion next to a reference item like a coin";
     UILabel *header = [DemoKLCPopupHelper labelForDemoWithFontSize:24.0 andText:headerText];
     UILabel *description = [DemoKLCPopupHelper labelForDemoWithFontSize:16.0 andText:descriptionText];
     UIImageView *demoImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"demoMeasureMovie"]];
@@ -491,7 +492,7 @@
 {
     UIView *contentView = [DemoKLCPopupHelper contentViewForDemo];
     NSString *headerText = @"Step 2: Measure it";
-    NSString *descriptionText = @"Move and re-size the measurement tools so that the red circles are around the mole and the reference item";
+    NSString *descriptionText = @"Move and re-size the measurement tools so that the red circles are around the lesion and the reference item";
     UILabel *header = [DemoKLCPopupHelper labelForDemoWithFontSize:24.0 andText:headerText];
     UILabel *description = [DemoKLCPopupHelper labelForDemoWithFontSize:16.0 andText:descriptionText];
     UIImageView *demoImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"demoExample"]];
@@ -547,7 +548,7 @@
 {
     UIView *contentView = [DemoKLCPopupHelper contentViewForDemo];
     NSString *headerText = @"Step 3: Monitor it";
-    NSString *descriptionText = @"Monitor this mole by re-measuring it once a month.\n\nCheck the dashboard to see your progress and mole statistics";
+    NSString *descriptionText = @"Monitor this lesion by re-measuring it once a month.\n\nCheck the dashboard to see your progress and mole statistics";
     UILabel *header = [DemoKLCPopupHelper labelForDemoWithFontSize:24.0 andText:headerText];
     UILabel *description = [DemoKLCPopupHelper labelForDemoWithFontSize:16.0 andText:descriptionText];
     UIImageView *demoImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"demoMonitor"]];

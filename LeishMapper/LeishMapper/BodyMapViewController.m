@@ -186,17 +186,17 @@
     
     [vars animateTransparencyOfZonesWithPhotoDataOverDuration:1.25];
     [vars updateZoneButtonImages];
-    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
     
+    //NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
     //If you have completed all the way through onboarding, hide the Beaker
-    if ([ud boolForKey:@"shouldShowOnboarding"] == NO)
-    {
+    //if ([ud boolForKey:@"shouldShowOnboarding"] == NO)
+    //{
         self.consentButton.hidden = YES;
-    }
-    else
-    {
-        self.consentButton.hidden = NO;
-    }
+    //}
+    //else
+    //{
+    //    self.consentButton.hidden = NO;
+    //}
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -451,7 +451,7 @@
     welcomeLabel.textColor = [UIColor blackColor];
     welcomeLabel.textAlignment = NSTextAlignmentCenter;
     welcomeLabel.font = [UIFont systemFontOfSize:16.0];
-    welcomeLabel.text = @"You indicated that you had a mole removed this past month.\n\nPlease let us know which one it was by tapping on that mole's settings icon";
+    welcomeLabel.text = @"You indicated that you had a lesion removed this past month.\n\nPlease let us know which one it was by tapping on that lesion's settings icon";
     
     UIImageView *demoShot = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"moleRemovedDemo"]];
     
