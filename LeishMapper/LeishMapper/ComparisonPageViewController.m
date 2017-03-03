@@ -185,7 +185,7 @@
 
 -(NSString *)emailBodyForMeasurement:(Measurement *)measurement
 {
-    NSString *moleData = [NSString stringWithFormat:@"Mole Name: %@\n",measurement.whichMole.moleName];
+    NSString *moleData = [NSString stringWithFormat:@"Lesion Name: %@\n",measurement.whichMole.moleName];
     NSNumber *zoneID = @([measurement.whichMole.whichZone.zoneID intValue]);
     NSString *zoneName = [Zone zoneNameForZoneID:zoneID];
     NSString *zoneData = [NSString stringWithFormat:@"Body Map Zone: %@\n",zoneName];

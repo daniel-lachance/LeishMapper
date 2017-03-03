@@ -220,7 +220,7 @@
     }
     else
     {
-        self.moleSizeField.text = @"Mole Size: N/A";
+        self.moleSizeField.text = @"Lesion Size: N/A";
         //Don't make any measurement tools if no measurement
     }
     
@@ -765,7 +765,7 @@
 
 -(NSString *)emailBodyForMeasurement:(Measurement *)measurement
 {
-    NSString *moleData = [NSString stringWithFormat:@"Mole Name: %@\n",self.mole.moleName];
+    NSString *moleData = [NSString stringWithFormat:@"Lesion Name: %@\n",self.mole.moleName];
     NSNumber *zoneID = @([self.mole.whichZone.zoneID intValue]);
     NSString *zoneName = [Zone zoneNameForZoneID:zoneID];
     NSString *zoneData = [NSString stringWithFormat:@"Body Map Zone: %@\n",zoneName];
@@ -1023,7 +1023,7 @@ http://stackoverflow.com/questions/6821517/save-an-image-to-application-document
         [self deleteMole];
     }];
     
-    UIAlertAction *moleWasRemoved = [UIAlertAction actionWithTitle:@"Mole Removed by Doctor" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
+    UIAlertAction *moleWasRemoved = [UIAlertAction actionWithTitle:@"Lesion Removed by Doctor" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
         [self moleWasRemoved];
     }];
     
@@ -1079,7 +1079,7 @@ http://stackoverflow.com/questions/6821517/save-an-image-to-application-document
 
 -(void)cancelMoleDeletion
 {
-    NSLog(@"Mole Deletion Cancelled");
+    NSLog(@"Lesion Deletion Cancelled");
 }
 
 #pragma mark - Handle Touch Events
@@ -1255,7 +1255,7 @@ http://stackoverflow.com/questions/6821517/save-an-image-to-application-document
             self.stepperDecrement.enabled = NO;
         }
         formattedSize = [formattedSize stringByAppendingString:@" mm"];
-        NSString *sizeText = @"Mole Size: ";
+        NSString *sizeText = @"Lesion Size: ";
         sizeText = [sizeText stringByAppendingString:formattedSize];
         self.moleSizeField.text = sizeText;
     }
@@ -1272,7 +1272,7 @@ http://stackoverflow.com/questions/6821517/save-an-image-to-application-document
     float roundedDiameter = [[DashboardModel sharedInstance] correctFloat:[self.measurement.absoluteMoleDiameter floatValue]];
     formattedSize = [NSString stringWithFormat:@"%.1f",roundedDiameter];
     formattedSize = [formattedSize stringByAppendingString:@" mm"];
-    NSString *sizeText = @"Mole Size: ";
+    NSString *sizeText = @"Lesion Size: ";
     sizeText = [sizeText stringByAppendingString:formattedSize];
     self.moleSizeField.text = sizeText;
 }

@@ -148,11 +148,11 @@
     [self.containerView addSubview:self.bodyBack];// bodyBack View
     self.nextView = self.bodyBack;
     self.nextView.alpha = 0.0;
-    self.nextViewTitle = @"Mole Map - Back";
+    self.nextViewTitle = @"Leish Map - Back";
     
     [self.containerView addSubview:self.bodyFront];                         // bodyFront View
     self.currentView = self.bodyFront;
-    self.currentViewTitle = @"Mole Map - Front";
+    self.currentViewTitle = @"Leish Map - Front";
     self.navigationItem.title = self.currentViewTitle;
     
     self.scrollView.minimumZoomScale = 1.0;
@@ -233,7 +233,7 @@
     // Generate content view to present
     UIView *contentView = [DemoKLCPopupHelper contentViewForDemo];
     
-    NSString *welcomeText = @"Would you like a quick demo of how to map and measure your moles?";
+    NSString *welcomeText = @"Would you like a quick demo of how to map and measure your lesions?";
     NSString *activateLaterText = @"You can activate the demo\nat any time in settings";
     UILabel *welcomeLabel = [DemoKLCPopupHelper labelForDemoWithFontSize:24.0 andText:welcomeText];
     UILabel *activateLaterLabel = [DemoKLCPopupHelper labelForDemoWithFontSize:20.0 andText:activateLaterText];
@@ -291,8 +291,8 @@
 - (void)showThreeStepPopup:(id)sender
 {
     UIView *contentView = [DemoKLCPopupHelper contentViewForDemo];
-    NSString *headerText = @"There are 3 steps to tracking a mole:";
-    NSString *descriptionText = @"1. Map it,\n2. Measure it,\n3. Monitor it monthly";
+    NSString *headerText = @"There are 3 steps to tracking a lesion:";
+    NSString *descriptionText = @"1. Map it,\n2. Measure it,\n3. Monitor it frequently";
     UILabel *header = [DemoKLCPopupHelper labelForDemoWithFontSize:24.0 andText:headerText];
     UILabel *description = [DemoKLCPopupHelper labelForDemoWithFontSize:20.0 andText:descriptionText];
     UIImageView *demoImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"blankPlaceHolder"]];

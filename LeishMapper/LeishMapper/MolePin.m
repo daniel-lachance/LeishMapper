@@ -243,7 +243,7 @@
         self.calloutView.leftAccessoryView = deleteMoleButton;
         self.calloutView.rightAccessoryView = detailButton;
         
-        NSString *subtitle = @"Mole Size: ";
+        NSString *subtitle = @"Lesion Size: ";
         if (self.mostRecentMeasurement.absoluteMoleDiameter)
         {
             float roundedDiameter = [[DashboardModel sharedInstance] correctFloat:[self.mostRecentMeasurement.absoluteMoleDiameter floatValue]];
