@@ -637,4 +637,31 @@
     return matches;
 }
 
+-(NSString *) nextIncrementalName
+{
+    NSString *name = nil;
+    NSArray *allCurrentNames = [self arrayOfAllCurrentMoleNames];
+    NSString *namePrefix = [[NSUserDefaults standardUserDefaults] stringForKey:@"IncrementalNamingPrefix"];
+
+    if (!allCurrentNames || [allCurrentNames count] == 0)
+    {
+        // zero current names, return first name
+        name = [namePrefix stringByAppendingString:@" 1"];
+    }
+    else
+    {
+        NSInteger size = [allCurrentNames count];
+        NSString *pendingName = nil;
+        
+        do {
+            pendingName = [namePrefix stringByAppendingFormat:@" %ld", (long)size];
+            size++;
+        } while ([allCurrentNames containsObject:pendingName]);
+        
+        name = pendingName;
+    }
+    
+    return name;
+}
+
 @end

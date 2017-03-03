@@ -370,6 +370,14 @@
         NSString *referenceObject = @"Dime";
         [standardUserDefaults setValue:referenceObject forKey:@"referenceObject"];
     }
+    if (![standardUserDefaults objectForKey:@"UseIncrementalNaming"])
+    {
+        [standardUserDefaults setBool:TRUE forKey:@"UseIncrementalNaming"];
+    }
+    if (![standardUserDefaults objectForKey:@"IncrementalNamingPrefix"])
+    {
+        [standardUserDefaults setValue:@"Lesion" forKey:@"IncrementalNamingPrefix"];
+    }
     if (![standardUserDefaults objectForKey:@"moleNameGender"])
     {
         NSString *defaultMoleNameGender = @"Random";

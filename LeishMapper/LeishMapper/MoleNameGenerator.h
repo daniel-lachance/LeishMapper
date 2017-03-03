@@ -39,5 +39,5 @@
 @property (strong, nonatomic) NSManagedObjectContext *context;
 
 -(NSString *)randomUniqueMoleNameWithGenderSpecification:(NSString *)gender;
-
+-(NSString *)nextIncrementalName;
 @end
