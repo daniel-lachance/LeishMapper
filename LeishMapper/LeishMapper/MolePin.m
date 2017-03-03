@@ -73,15 +73,17 @@
     MolePin *molePin = [[MolePin alloc] initPinAtCenterOfScreenOnViewController:(id)vc
                                                                         andView:(UIView *)view
                                                                   andScrollView:(UIScrollView *)sv];
-    MoleNameGenerator *mng = [[MoleNameGenerator alloc] init];
-    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    mng.context = appDelegate.managedObjectContext;
-    
-    NSUserDefaults *standardUserDefaults = [NSUserDefaults standardUserDefaults];
-    NSString *moleNameGender = [standardUserDefaults objectForKey:@"moleNameGender"];
-    NSString *moleName = [mng randomUniqueMoleNameWithGenderSpecification:moleNameGender];
-    molePin.moleName = moleName;
-    [molePin setMolePinState:MolePinStateSelected];
+/* duplicate code block in init below
+//    MoleNameGenerator *mng = [[MoleNameGenerator alloc] init];
+//    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+//    mng.context = appDelegate.managedObjectContext;
+//    
+//    NSUserDefaults *standardUserDefaults = [NSUserDefaults standardUserDefaults];
+//    NSString *moleNameGender = [standardUserDefaults objectForKey:@"moleNameGender"];
+//    NSString *moleName = [mng randomUniqueMoleNameWithGenderSpecification:moleNameGender];
+//    molePin.moleName = moleName;
+//    [molePin setMolePinState:MolePinStateSelected];
+*/
     return molePin;
 }
 
@@ -102,9 +104,15 @@
     mng.context = appDelegate.managedObjectContext;
 
     NSUserDefaults *standardUserDefaults = [NSUserDefaults standardUserDefaults];
-    NSString *moleNameGender = [standardUserDefaults objectForKey:@"moleNameGender"];
-    NSString *moleName = [mng randomUniqueMoleNameWithGenderSpecification:moleNameGender];
-    _moleName = moleName;
+    
+    if ([standardUserDefaults boolForKey:@"UseIncrementalNaming"]) {
+        _moleName = [mng nextIncrementalName];
+    } else {
+        NSString *moleNameGender = [standardUserDefaults objectForKey:@"moleNameGender"];
+        NSString *moleName = [mng randomUniqueMoleNameWithGenderSpecification:moleNameGender];
+        _moleName = moleName;
+    }
+    
     [self setMolePinState:MolePinStateSelected];
     return self;
 }
