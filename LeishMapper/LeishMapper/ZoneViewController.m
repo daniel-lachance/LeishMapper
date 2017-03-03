@@ -277,7 +277,7 @@
 
 - (void)showPopTipViewPointToPinButton
 {
-    NSString *message = @"Tap to drop\na mole pin";
+    NSString *message = @"Tap to drop\na lesion pin";
     self.popTipViewPointToPinButton = [[CMPopTipView alloc] initWithMessage:message];
     self.popTipViewPointToPinButton.delegate = self;
     self.popTipViewPointToPinButton.backgroundColor = [UIColor whiteColor];
@@ -293,7 +293,7 @@
 
 - (void)showPopTipViewExportButton
 {
-    NSString *message = @"Export zone photo\nand mole data\nfor your records";
+    NSString *message = @"Export zone photo\nand lesion data\nfor your records";
     self.popTipViewExport= [[CMPopTipView alloc] initWithMessage:message];
     self.popTipViewExport.delegate = self;
     self.popTipViewExport.backgroundColor = [UIColor whiteColor];
@@ -308,7 +308,7 @@
 
 -(void)showPopTipViewGoToMeasure:(UIView *)viewToPointAt
 {
-    NSString *message = @"Tap to measure\nthis mole";
+    NSString *message = @"Tap to measure\nthis lesion";
     self.popTipViewGoToMeasure = [[CMPopTipView alloc] initWithMessage:message];
     self.popTipViewGoToMeasure.delegate = self;
     self.popTipViewGoToMeasure.backgroundColor = [UIColor whiteColor];
@@ -342,7 +342,7 @@
 {
     UIView *contentView = [DemoKLCPopupHelper contentViewForDemo];
     NSString *headerText = @"Step 1: Map it";
-    NSString *descriptionText = @"Take a photo of the whole area by tapping the camera. This photo might include many moles.";
+    NSString *descriptionText = @"Take a photo of the whole area by tapping the camera. This photo might include many lesions.";
     UILabel *header = [DemoKLCPopupHelper labelForDemoWithFontSize:24.0 andText:headerText];
     UILabel *description = [DemoKLCPopupHelper labelForDemoWithFontSize:16.0 andText:descriptionText];
     UIImageView *demoImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"demoPhoto"]];
@@ -391,7 +391,7 @@
 {
     UIView *contentView = [DemoKLCPopupHelper contentViewForDemo];
     NSString *headerText = @"Step 1: Map it";
-    NSString *descriptionText = @"Map where your moles are by adding a pin. Then drag that pin over to a mole.";
+    NSString *descriptionText = @"Map where your lesions are by adding a pin. Then drag that pin over to a lesion.";
     UILabel *header = [DemoKLCPopupHelper labelForDemoWithFontSize:24.0 andText:headerText];
     UILabel *description = [DemoKLCPopupHelper labelForDemoWithFontSize:16.0 andText:descriptionText];
     UIImageView *demoImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"demoDragPin"]];
@@ -440,7 +440,7 @@
 {
     UIView *contentView = [DemoKLCPopupHelper contentViewForDemo];
     NSString *headerText = @"Step 2: Measure it";
-    NSString *descriptionText = @"Tap a mole pin and then the measurement icon to measure a mole.";
+    NSString *descriptionText = @"Tap a lesion pin and then the measurement icon to measure a lesion.";
     UILabel *header = [DemoKLCPopupHelper labelForDemoWithFontSize:24.0 andText:headerText];
     UILabel *description = [DemoKLCPopupHelper labelForDemoWithFontSize:16.0 andText:descriptionText];
     UIImageView *demoImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"demoMeasure"]];
@@ -681,7 +681,7 @@
     
     BOOL canOpenSettings = (&UIApplicationOpenSettingsURLString);
     
-    UIAlertController *cameraPermissions = [UIAlertController alertControllerWithTitle:@"Camera Permissions" message:@"This app requires the use of the camera to document and measure moles.\n\nIf you have not done so already, please provide camera permissions in the settings for Mole Mapper" preferredStyle:UIAlertControllerStyleActionSheet];
+    UIAlertController *cameraPermissions = [UIAlertController alertControllerWithTitle:@"Camera Permissions" message:@"This app requires the use of the camera to document and measure lesions.\n\nIf you have not done so already, please provide camera permissions in the settings for Leish Mapper" preferredStyle:UIAlertControllerStyleActionSheet];
     
     UIAlertAction *go;
     if (canOpenSettings)
@@ -922,10 +922,10 @@
 - (IBAction)deleteMolePinButtonTapped:(MolePin *)sender
 {
     self.moleToBeDeleted = sender;
-    NSString *title = [NSString stringWithFormat:@"Settings for mole named %@",sender.moleName];
+    NSString *title = [NSString stringWithFormat:@"Settings for lesion named %@",sender.moleName];
     UIAlertController *deleteMole = [UIAlertController alertControllerWithTitle:title message:@"" preferredStyle:UIAlertControllerStyleActionSheet];
     
-    UIAlertAction *delete = [UIAlertAction actionWithTitle:@"Delete Mole from App" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
+    UIAlertAction *delete = [UIAlertAction actionWithTitle:@"Delete Lesion from App" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
         [self deleteMole];
     }];
     

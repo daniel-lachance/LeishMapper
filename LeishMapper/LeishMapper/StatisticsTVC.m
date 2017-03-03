@@ -189,7 +189,7 @@
             }
         }
     }
-    if (!totalMoleSizes == 0.0)
+    if (!(totalMoleSizes == 0.0))
     {
         NSNumberFormatter *fmt = [[NSNumberFormatter alloc] init];
         [fmt setMaximumFractionDigits:2];
@@ -215,7 +215,7 @@
 -(NSString *)subtitleForBiggestMole
 {
     Measurement *biggest = [self measurementForBiggestMole];
-    NSString *subtitle = @"No moles measured yet";
+    NSString *subtitle = @"No lesions measured yet";
     if (biggest.measurementID != nil)
     {
         NSString *moleName = biggest.whichMole.moleName;
@@ -267,7 +267,7 @@
 -(NSString *)subtitleForMolyestZone
 {
     Zone *zone = [self zoneForMolyestZone];
-    NSString *subtitle = @"No moles added to a zone yet";
+    NSString *subtitle = @"No lesions added to a zone yet";
     if (zone)
     {
         NSNumber *zoneID = @([zone.zoneID intValue]);
@@ -288,7 +288,7 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return 6;
+    return 5;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
