@@ -49,9 +49,9 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.section == 3)
+    if (indexPath.section == 0)
     {
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://www.ohsu.edu/xd/health/services/dermatology/war-on-melanoma/melanoma-community-registry.cfm"]];
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://www.cdc.gov/parasites/leishmaniasis/gen_info/faqs.html"]];
     }
 }
 
