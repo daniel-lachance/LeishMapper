@@ -113,7 +113,7 @@ modifyColorForHighlighted:(BOOL)colorMayBeModified
 
         if (self.measuringToolType == MeasuringToolTypeMoleMeasure)
         {
-            _measuringToolLabel.text = @"Mole Measure";
+            _measuringToolLabel.text = @"Lesion Measure";
             
             if (_diameter == MeasuringToolDiameterDefault)
             {

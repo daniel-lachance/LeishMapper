@@ -929,7 +929,7 @@
         [self deleteMole];
     }];
     
-    UIAlertAction *moleWasRemoved = [UIAlertAction actionWithTitle:@"Mole Removed by Doctor" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
+    UIAlertAction *moleWasRemoved = [UIAlertAction actionWithTitle:@"Lesion Removed by Doctor" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
         [self moleWasRemoved];
     }];
     
