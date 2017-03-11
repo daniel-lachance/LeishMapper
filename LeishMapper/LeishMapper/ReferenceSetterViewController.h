@@ -39,17 +39,25 @@
 #import "Measurement.h"
 #import "Measurement+MakeAndMod.h"
 #import "ReferenceConverter.h"
+#import "CountryPicker.h"
+#import "CoinsByRegionPicker.h"
 
-@interface ReferenceSetterViewController : UIViewController <UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource>
+@interface ReferenceSetterViewController : UITableViewController <UITextFieldDelegate, CoinsByRegionPickerDelegate, CountryPickerDelegate>
 
 //**NOTE** The conversion from what is shown on the reference setter and stored in the database to what is shown in the relatively small
 //textfield in the moleViewController must be accounted for as the referenceNames are updated and also in the Reference Converter class
 
 @property IBOutlet UILabel *currentReferenceObjectLabel;
-@property IBOutlet UIPickerView *pickerView;
+@property IBOutlet CoinsByRegionPicker *pickerView;
 @property IBOutlet UITextField *customReferenceTextField;
+@property (weak, nonatomic) IBOutlet UITableViewCell *customReferenceTableViewCell;
+@property (weak, nonatomic) IBOutlet CountryPicker *countryPickerView;
+@property BOOL countryPickerVisible;
+@property BOOL coinPickerVisible;
+@property (weak, nonatomic) IBOutlet UILabel *countryRowLabel;
+@property (weak, nonatomic) IBOutlet UILabel *coinRowLabel;
 
-@property (nonatomic, strong) NSArray *referencesInPicker;
+//@property (nonatomic, strong) NSArray *referencesInPicker;
 @property (nonatomic, strong) ReferenceConverter *refConverter;
 
 @property (nonatomic, strong) NSManagedObjectContext *context;

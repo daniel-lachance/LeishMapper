@@ -40,10 +40,15 @@
 //**NOTE** The conversion from what is shown on the reference setter and stored in the database to what is shown in the relatively small
 //textfield in the moleViewController must be accounted for as the referenceNames are updated and also in the Reference Converter class
 
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView;
+
 @end
 
 @implementation ReferenceSetterViewController
 
+#pragma mark - Properties
+
+/*
 -(NSArray *)referencesInPicker
 {
     if (!_referencesInPicker)
@@ -53,6 +58,7 @@
     }
     return _referencesInPicker;
 }
+*/
 
 -(ReferenceConverter *)refConverter
 {
@@ -63,16 +69,19 @@
     return _refConverter;
 }
 
+#pragma mark - View Controller Lifecycle
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	self.customReferenceTextField.delegate = self;
     self.pickerView.delegate = self;
-    self.pickerView.dataSource = self;
+    self.countryPickerView.delegate = self;
 }
 
 -(void)viewWillAppear:(BOOL)animated
 {
+    /*
     NSUInteger indexOfRef = [self.referencesInPicker indexOfObject:self.measurement.referenceObject];
     if (indexOfRef != NSNotFound)
     {
@@ -82,21 +91,56 @@
     {
         [self.pickerView selectRow:2 inComponent:0 animated:YES];
     }
-	
+    */
+    
+    self.countryPickerVisible = NO;
+    self.countryPickerView.hidden = YES;
+    self.countryPickerView.translatesAutoresizingMaskIntoConstraints = NO;
+    
+    self.coinPickerVisible = NO;
+    self.pickerView.hidden = YES;
+    self.pickerView.translatesAutoresizingMaskIntoConstraints = NO;
+    
+    UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)];
+    [self.customReferenceTableViewCell addGestureRecognizer:tapGestureRecognizer];
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    NSUserDefaults *standardUserDefaults = [NSUserDefaults standardUserDefaults];
+    NSString *referenceCountryCode = [standardUserDefaults objectForKey:@"referenceCountryCode"];
+    
+    if (referenceCountryCode)
+    {
+        [self.countryPickerView setSelectedCountryCode:referenceCountryCode];
+    } else {
+        // default country picker to current device locale
+        [self.countryPickerView setSelectedLocale:[NSLocale currentLocale]];
+    }
+    //self.countryRowLabel.text = self.countryPickerView.selectedCountryName;
+    [self countryPicker:self.countryPickerView didSelectCountryWithName:self.countryPickerView.selectedCountryName code:self.countryPickerView.selectedCountryCode];
+    
+    // if a measurement exists, use its value to set the picker(s) and label
     if (self.measurement)
     {
-        self.currentReferenceObjectLabel.text = self.measurement.referenceObject;
+        NSString *refObjTxt = self.measurement.referenceObject;
+        [self.pickerView setSelectedCoinName:refObjTxt];
+        self.currentReferenceObjectLabel.text = refObjTxt;
     }
+    //self.coinRowLabel.text = self.pickerView.selectedCoinName;
+    [self coinsByRegionPicker:self.pickerView didSelectCoinWithName:self.pickerView.selectedCoinName diameter:self.pickerView.selectedCoinDiameter];
 }
 
 -(void)viewWillDisappear:(BOOL)animated
 {
-    
     NSUserDefaults *standardUserDefaults = [NSUserDefaults standardUserDefaults];
     NSString *referenceObject = self.currentReferenceObjectLabel.text;
     [standardUserDefaults setValue:referenceObject forKey:@"referenceObject"];
+    [standardUserDefaults setValue:self.countryPickerView.selectedCountryCode forKey:@"referenceCountryCode"];
     
     NSNumber *absoluteReferenceDiameter = [self.refConverter millimeterValueForReference:self.currentReferenceObjectLabel.text];
+    
+    //FIX: need to load the coin diameter from the selected coin or the custom diameter, not the refConverter
     
     //Save the measurement reference object (leave the rest alone, which is what the nil's are doing)
     [Measurement moleMeasurementForMole:self.measurement.whichMole
@@ -115,11 +159,123 @@
                  inManagedObjectContext:self.context];
 }
 
-//Allows the background view controller to pick up background events and dismiss
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+#pragma mark - Methods
+
+- (void)handleTap:(UITapGestureRecognizer *)sender
 {
-    [self.customReferenceTextField resignFirstResponder];
+    if (sender.state == UIGestureRecognizerStateEnded)
+    {
+        [self.customReferenceTextField becomeFirstResponder];
+    }
 }
+
+//Allows the background view controller to pick up background events and dismiss
+//- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+//{
+//    [self.customReferenceTextField resignFirstResponder];
+//}
+
+- (void)showCountryPickerCell
+{
+    self.countryPickerVisible = YES;
+    [self.tableView beginUpdates];
+    [self.tableView endUpdates];
+    self.countryPickerView.hidden = NO;
+    self.countryPickerView.alpha = 0.0f;
+    [UIView animateWithDuration:0.25 animations:^{
+        self.countryPickerView.alpha = 1.0f;
+    }];
+}
+
+- (void)hideCountryPickerCell
+{
+    self.countryPickerVisible = NO;
+    [self.tableView beginUpdates];
+    [self.tableView endUpdates];
+    [UIView animateWithDuration:0.25
+                     animations:^{
+                         self.countryPickerView.alpha = 0.0f;
+                     }
+                     completion:^(BOOL finished){
+                         self.countryPickerView.hidden = YES;
+                     }];
+}
+
+- (void)showCoinPickerCell
+{
+    self.coinPickerVisible = YES;
+    [self.tableView beginUpdates];
+    [self.tableView endUpdates];
+    self.pickerView.hidden = NO;
+    self.pickerView.alpha = 0.0f;
+    [UIView animateWithDuration:0.25 animations:^{
+        self.pickerView.alpha = 1.0f;
+    }];
+}
+
+- (void)hideCoinPickerCell
+{
+    self.coinPickerVisible = NO;
+    [self.tableView beginUpdates];
+    [self.tableView endUpdates];
+    [UIView animateWithDuration:0.25
+                     animations:^{
+                         self.pickerView.alpha = 0.0f;
+                     }
+                     completion:^(BOOL finished){
+                         self.pickerView.hidden = YES;
+                     }];
+}
+
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView;
+{
+    [[self view] endEditing:true];
+}
+
+#pragma mark - UITableViewDelegate
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    CGFloat height = self.tableView.rowHeight;
+    if (indexPath.row == 1 && indexPath.section == 0){
+        height = self.countryPickerVisible ? 216.0f : 0.0f;
+    }
+    if (indexPath.row == 3 && indexPath.section == 0){
+        height = self.coinPickerVisible ? 108.0f : 0.0f;
+    }
+    return height;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.row == 0 && indexPath.section == 0) {
+        if (self.countryPickerVisible){
+            [self hideCountryPickerCell];
+        } else {
+            [self showCountryPickerCell];
+            if (self.coinPickerVisible) [self hideCoinPickerCell];
+        }
+    }
+    if (indexPath.row == 2 && indexPath.section == 0) {
+        if (self.coinPickerVisible){
+            [self hideCoinPickerCell];
+        } else {
+            [self showCoinPickerCell];
+            if (self.countryPickerVisible) [self hideCountryPickerCell];
+        }
+    }
+    [[self view] endEditing:true];
+    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+//-(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    if (indexPath.row == 0 && indexPath.section == 1) {
+//        [self.customReferenceTextField resignFirstResponder];
+//    }
+//}
+
+#pragma mark - UITextFieldDelegate
 
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
@@ -142,6 +298,8 @@
     else return NO;
 }
 
+# pragma mark - UIPickerViewDelegate
+/*
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
     self.currentReferenceObjectLabel.text = self.referencesInPicker[row];
@@ -163,6 +321,24 @@
 {
     return [self.referencesInPicker count];
 }
+*/
 
+#pragma mark - CountryPickerDelegate
+
+- (void)countryPicker:(__unused CountryPicker *)picker didSelectCountryWithName:(NSString *)name code:(NSString *)code
+{
+    self.countryRowLabel.text = name;
+    // country was picked, reload coin picker with coins from new region
+    [self.pickerView setRegionCode:code];
+    [self.pickerView reloadAllComponents];
+}
+
+#pragma mark - CoinByRegionPickerDelegate
+
+- (void)coinsByRegionPicker:(CoinsByRegionPicker *)picker didSelectCoinWithName:(NSString *)name diameter:(NSNumber *)diameter
+{
+    self.currentReferenceObjectLabel.text = name;
+    self.coinRowLabel.text = name;
+}
 
 @end
