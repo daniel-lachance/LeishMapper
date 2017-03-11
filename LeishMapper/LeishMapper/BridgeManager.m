@@ -39,7 +39,6 @@
 #import "Mole.h"
 #import "Mole+MakeAndMod.h"
 #import "Zone.h"
-#import "ZipArchive.h"
 #import "APCDataArchiveUploader.h"
 #import "APCLog.h"
 #import "AppDelegate.h"
