@@ -47,10 +47,11 @@
 //**NOTE** The conversion from what is shown on the reference setter and stored in the database to what is shown in the relatively small
 //textfield in the moleViewController must be accounted for as the referenceNames are updated and also in the Reference Converter class
 
-@property IBOutlet UILabel *currentReferenceObjectLabel;
-@property IBOutlet CoinsByRegionPicker *pickerView;
-@property IBOutlet UITextField *customReferenceTextField;
+@property (weak, nonatomic) IBOutlet UILabel *currentReferenceObjectLabel;
+@property (weak, nonatomic) IBOutlet CoinsByRegionPicker *pickerView;
+@property (weak, nonatomic) IBOutlet UITextField *customReferenceTextField;
 @property (weak, nonatomic) IBOutlet UITableViewCell *customReferenceTableViewCell;
+@property (weak, nonatomic) IBOutlet UITableViewCell *coinTableViewCell;
 @property (weak, nonatomic) IBOutlet CountryPicker *countryPickerView;
 @property BOOL countryPickerVisible;
 @property BOOL coinPickerVisible;

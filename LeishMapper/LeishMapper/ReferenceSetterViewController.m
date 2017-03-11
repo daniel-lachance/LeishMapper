@@ -117,7 +117,7 @@
         // default country picker to current device locale
         [self.countryPickerView setSelectedLocale:[NSLocale currentLocale]];
     }
-    //self.countryRowLabel.text = self.countryPickerView.selectedCountryName;
+    //call country picker delegate
     [self countryPicker:self.countryPickerView didSelectCountryWithName:self.countryPickerView.selectedCountryName code:self.countryPickerView.selectedCountryCode];
     
     // if a measurement exists, use its value to set the picker(s) and label
@@ -127,7 +127,7 @@
         [self.pickerView setSelectedCoinName:refObjTxt];
         self.currentReferenceObjectLabel.text = refObjTxt;
     }
-    //self.coinRowLabel.text = self.pickerView.selectedCoinName;
+    //call coin picker delegate
     [self coinsByRegionPicker:self.pickerView didSelectCoinWithName:self.pickerView.selectedCoinName diameter:self.pickerView.selectedCoinDiameter];
 }
 
@@ -227,8 +227,23 @@
                      }];
 }
 
+- (void)markCoinSelectionActive
+{
+    self.coinTableViewCell.accessoryType = UITableViewCellAccessoryCheckmark;
+    self.customReferenceTableViewCell.accessoryType = UITableViewCellAccessoryNone;
+}
+
+- (void)markCustomSelectionActive
+{
+    self.coinTableViewCell.accessoryType = UITableViewCellAccessoryNone;
+    self.customReferenceTableViewCell.accessoryType = UITableViewCellAccessoryCheckmark;
+}
+
+#pragma mark - UIScrollViewDelegate
+
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView;
 {
+    // end text field editing if user scrolls
     [[self view] endEditing:true];
 }
 
@@ -276,6 +291,11 @@
 //}
 
 #pragma mark - UITextFieldDelegate
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    [self markCustomSelectionActive];
+}
 
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
@@ -331,6 +351,7 @@
     // country was picked, reload coin picker with coins from new region
     [self.pickerView setRegionCode:code];
     [self.pickerView reloadAllComponents];
+    [self markCoinSelectionActive];
 }
 
 #pragma mark - CoinByRegionPickerDelegate
@@ -339,6 +360,7 @@
 {
     self.currentReferenceObjectLabel.text = name;
     self.coinRowLabel.text = name;
+    [self markCoinSelectionActive];
 }
 
 @end
