@@ -29,7 +29,6 @@ bool isRegionChanged = TRUE;
     if (!_coinNames || isRegionChanged)
     {
         _coinNames = [[self coinsByRegionByName].allKeys copy];
-        isRegionChanged = FALSE;
     }
     return _coinNames;
 }
@@ -40,7 +39,6 @@ bool isRegionChanged = TRUE;
     if (!_coinDiameters || isRegionChanged)
     {
         _coinDiameters = [[self coinsByRegionByDiameter].allKeys copy];
-        isRegionChanged = FALSE;
     }
     return _coinDiameters;
 }
@@ -66,6 +64,11 @@ bool isRegionChanged = TRUE;
                 }
                 break;
             }
+        }
+        if (coinsByName.count == 0)
+        {
+            NSString *noCoins = @"No coins";
+            coinsByName[noCoins] = @0;
         }
         _coinsByRegionByName = [coinsByName copy];
     }
@@ -174,6 +177,10 @@ bool isRegionChanged = TRUE;
     {
         _regionCode = regionCode;
         isRegionChanged = TRUE;
+        [self coinNames];
+        [self coinDiameters];
+        isRegionChanged = FALSE;
+        [self reloadComponent:0];
     }
 }
 
@@ -195,32 +202,50 @@ bool isRegionChanged = TRUE;
     return (NSInteger)[self coinNames].count;
 }
 
-- (UIView *)pickerView:(__unused UIPickerView *)pickerView viewForRow:(NSInteger)row
-          forComponent:(__unused NSInteger)component reusingView:(UIView *)view
+//- (UIView *)pickerView:(__unused UIPickerView *)pickerView viewForRow:(NSInteger)row
+//          forComponent:(__unused NSInteger)component reusingView:(UIView *)view
+//{
+//    if (!view)
+//    {
+//        view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 280, 30)];
+//        
+//        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(35, 3, 245, 24)];
+//        label.backgroundColor = [UIColor clearColor];
+//        label.tag = 1;
+//        if (self.labelFont)
+//        {
+//            label.font = self.labelFont;
+//        }
+//        [view addSubview:label];
+//
+//        /*
+//        UIImageView *flagView = [[UIImageView alloc] initWithFrame:CGRectMake(3, 3, 24, 24)];
+//        flagView.contentMode = UIViewContentModeScaleAspectFit;
+//        flagView.tag = 2;
+//        [view addSubview:flagView];
+//         */
+//    }
+//
+//    ((UILabel *)[view viewWithTag:1]).text = [self coinNames][(NSUInteger)row];
+//    return view;
+//}
+
+- (NSAttributedString *)pickerView:(UIPickerView *)pickerView attributedTitleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
-    if (!view)
+    NSString *titleText = [self coinNames][(NSUInteger)row];
+    NSDictionary *attributes = nil;
+    
+    // Set the font if available
+    if (self.labelFont)
     {
-        view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 280, 30)];
-        
-        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(35, 3, 245, 24)];
-        label.backgroundColor = [UIColor clearColor];
-        label.tag = 1;
-        if (self.labelFont)
-        {
-            label.font = self.labelFont;
-        }
-        [view addSubview:label];
-
-        /*
-        UIImageView *flagView = [[UIImageView alloc] initWithFrame:CGRectMake(3, 3, 24, 24)];
-        flagView.contentMode = UIViewContentModeScaleAspectFit;
-        flagView.tag = 2;
-        [view addSubview:flagView];
-         */
+        attributes = @{
+                 NSFontAttributeName: self.labelFont
+                 };
     }
-
-    ((UILabel *)[view viewWithTag:1]).text = [self coinNames][(NSUInteger)row];
-    return view;
+    NSAttributedString *title = [[NSAttributedString alloc] initWithString:titleText attributes:attributes];
+    
+    return title;
+    
 }
 
 - (void)pickerView:(__unused UIPickerView *)pickerView

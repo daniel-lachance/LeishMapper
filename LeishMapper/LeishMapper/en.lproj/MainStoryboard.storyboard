@@ -1643,15 +1643,15 @@ Cgo
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="108" id="eIZ-ot-ong">
-                                        <rect key="frame" x="0.0" y="360" width="320" height="108"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="148" id="eIZ-ot-ong">
+                                        <rect key="frame" x="0.0" y="360" width="320" height="148"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eIZ-ot-ong" id="hz6-aY-CJn">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="107"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="147"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <pickerView contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CvY-8Z-qE2" userLabel="Coin Picker" customClass="CoinsByRegionPicker">
-                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="107"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="147"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </pickerView>
                                             </subviews>
@@ -1662,7 +1662,7 @@ Cgo
                             <tableViewSection headerTitle="Enter a custom reference size in mm" id="MG1-go-nQI">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="kIq-4Y-8p6">
-                                        <rect key="frame" x="0.0" y="524" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="565" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kIq-4Y-8p6" id="cms-Sy-Ofh">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
@@ -1697,7 +1697,7 @@ Cgo
                             <tableViewSection id="Sux-kX-Roz">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="htL-CA-32f" detailTextLabel="npc-0D-A6V" style="IBUITableViewCellStyleValue1" id="alg-6S-3U6">
-                                        <rect key="frame" x="0.0" y="604" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="645" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="alg-6S-3U6" id="paD-vn-zk4">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>

@@ -256,7 +256,7 @@
         height = self.countryPickerVisible ? 216.0f : 0.0f;
     }
     if (indexPath.row == 3 && indexPath.section == 0){
-        height = self.coinPickerVisible ? 108.0f : 0.0f;
+        height = self.coinPickerVisible ? 148.0f : 0.0f;
     }
     return height;
 }
@@ -283,17 +283,12 @@
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
-//-(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    if (indexPath.row == 0 && indexPath.section == 1) {
-//        [self.customReferenceTextField resignFirstResponder];
-//    }
-//}
-
 #pragma mark - UITextFieldDelegate
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField
 {
+    [self hideCountryPickerCell];
+    [self hideCoinPickerCell];
     [self markCustomSelectionActive];
 }
 
@@ -350,7 +345,10 @@
     self.countryRowLabel.text = name;
     // country was picked, reload coin picker with coins from new region
     [self.pickerView setRegionCode:code];
-    [self.pickerView reloadAllComponents];
+    // Note that the delegate method on UIPickerViewDelegate is not triggered when manually calling -[UIPickerView selectRow:inComponent:animated:].
+    // To do this, we fire off the delegate method manually.
+    [self.pickerView selectRow:0 inComponent:0 animated:TRUE];
+    [self coinsByRegionPicker:self.pickerView didSelectCoinWithName:self.pickerView.selectedCoinName diameter:self.pickerView.selectedCoinDiameter];
     [self markCoinSelectionActive];
 }
 
