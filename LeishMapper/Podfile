@@ -1,11 +1,16 @@
-source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '8.0'
-pod 'AFNetworking', '~> 2.5'
-platform :ios, '8.0'
-pod 'ResearchKit', '~> 1.2'
-platform :ios, '8.0'
-pod 'KLCPopup', :head
-platform :ios, '8.0'
-pod 'NSString-Hashes', '~>1.2.2'
-platform :ios, '8.0'
-pod 'zipzap', '~> 8.0'
+
+workspace 'LeishMapper'
+
+target 'LeishMapper' do
+    pod 'AFNetworking', '= 2.6.0'
+    pod 'ResearchKit', '= 1.2.1'
+    
+    # KLCPopup ver 1.1 does not exist on CocoaPods.org, need to pull from git repo
+    pod 'KLCPopup', :git => 'https://github.com/jmascia/KLCPopup', :tag => '1.1' 
+    
+    pod 'NSString-Hashes', '~>1.2'
+    pod 'zipzap', '= 8.0.6'
+
+    pod 'CountryPicker', '~> 1.3'
+end
