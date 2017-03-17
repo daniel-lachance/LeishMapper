@@ -640,23 +640,30 @@
 -(NSString *) nextIncrementalName
 {
     NSString *name = nil;
-    NSArray *allCurrentNames = [self arrayOfAllCurrentMoleNames];
+    NSArray *allCurrentMoles = [self arrayOfAllCurrentMoleNames];
     NSString *namePrefix = [[NSUserDefaults standardUserDefaults] stringForKey:@"IncrementalNamingPrefix"];
 
-    if (!allCurrentNames || [allCurrentNames count] == 0)
+    if (!allCurrentMoles || [allCurrentMoles count] == 0)
     {
         // zero current names, return first name
         name = [namePrefix stringByAppendingString:@" 1"];
     }
     else
     {
-        NSInteger size = [allCurrentNames count];
+        NSInteger size = [allCurrentMoles count];
         NSString *pendingName = nil;
+        BOOL isUniqueName = YES;
         
         do {
+            isUniqueName = YES;
             pendingName = [namePrefix stringByAppendingFormat:@" %ld", (long)size];
             size++;
-        } while ([allCurrentNames containsObject:pendingName]);
+            for (Mole *mole in allCurrentMoles) {
+                if ([mole.moleName.lowercaseString isEqualToString:pendingName.lowercaseString]) {
+                    isUniqueName = NO;
+                }
+            }
+        } while (!isUniqueName);
         
         name = pendingName;
     }

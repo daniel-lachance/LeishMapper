@@ -33,6 +33,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Mole.h"
 
 @interface MoleNameGenerator : NSObject
 
