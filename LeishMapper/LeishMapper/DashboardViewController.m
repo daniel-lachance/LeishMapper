@@ -101,6 +101,7 @@
         [_cellList removeAllObjects];
     }
     
+    /*
     //DashboardActivityCompletionCell
     DashboardActivityCompletionCell *cell1 = (DashboardActivityCompletionCell *)[_tableView dequeueReusableCellWithIdentifier:@"DashboardActivityCompletionCell"];
     
@@ -124,7 +125,7 @@
         cell2 = [nib objectAtIndex:0];
     }
     /////
-    
+    */
     //DashBoardMeasurementCell
     DashBoardMeasurementCell *cell3 = (DashBoardMeasurementCell *)[_tableView dequeueReusableCellWithIdentifier:@"DashBoardMeasurementCell"];
     
@@ -160,14 +161,14 @@
         cell5 = [nib objectAtIndex:0];
     }
     
-    cell1.clipsToBounds = YES;
-    cell2.clipsToBounds = YES;
+    //cell1.clipsToBounds = YES;
+    //cell2.clipsToBounds = YES;
     cell3.clipsToBounds = YES;
     cell4.clipsToBounds = YES;
     cell5.clipsToBounds = YES;
     
-    [_cellList addObject:cell1];
-    [_cellList addObject:cell2];
+    //[_cellList addObject:cell1];
+    //[_cellList addObject:cell2];
     [_cellList addObject:cell3];
     [_cellList addObject:cell4];
     [_cellList addObject:cell5];
@@ -214,6 +215,7 @@
 {
     static NSNumber *height = 0;
     
+    /*
     if (indexPath.row == 0)
     {
         DashboardActivityCompletionCell* cell = (DashboardActivityCompletionCell*)[_cellList objectAtIndex:indexPath.row];
@@ -225,21 +227,21 @@
         DashboardZoneDocumentationCell* cell = (DashboardZoneDocumentationCell*)[_cellList objectAtIndex:indexPath.row];
         height = @(cell.bounds.size.height);
     }
-    
-    if (indexPath.row == 2)
+    */
+    if (indexPath.row == 0)
     {
         DashBoardMeasurementCell* cell = (DashBoardMeasurementCell*)[_cellList objectAtIndex:indexPath.row];
         cell.dashBoardViewController = self;
         height = @(cell.bounds.size.height);
     }
     
-    if (indexPath.row == 3)
+    if (indexPath.row == 1)
     {
         DashboardBiggestMoleCell* cell = (DashboardBiggestMoleCell*)[_cellList objectAtIndex:indexPath.row];
         height = @(cell.bounds.size.height);
     }
     
-    if (indexPath.row == 4)
+    if (indexPath.row == 2)
     {
         DashboardSizeOvertimeCell* cell = (DashboardSizeOvertimeCell*)[_cellList objectAtIndex:indexPath.row];
         
