@@ -59,13 +59,13 @@
 		4BFF61871BAC9BFE00FE7853 /* CrossFadeSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BFF617B1BAC9BFE00FE7853 /* CrossFadeSegue.m */; };
 		4BFF61881BAC9BFE00FE7853 /* HeaderAddedTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BFF617D1BAC9BFE00FE7853 /* HeaderAddedTVC.m */; };
 		4BFF61891BAC9BFE00FE7853 /* ORKAnswerFormat+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BFF617F1BAC9BFE00FE7853 /* ORKAnswerFormat+Helper.m */; };
+		650DAD811E7DD2B8004DBA4A /* ReferenceObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 650DAD801E7DD2B8004DBA4A /* ReferenceObject.m */; };
 		654FAE9A1E6CB6D0005C5A53 /* CoinsByRegion.plist in Resources */ = {isa = PBXBuildFile; fileRef = 654FAE991E6CB6D0005C5A53 /* CoinsByRegion.plist */; };
 		654FAEAC1E6D2465005C5A53 /* CoinsByRegionPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 654FAEAB1E6D2465005C5A53 /* CoinsByRegionPicker.m */; };
 		9F54E632C5050B3E406F7A33 /* libPods-LeishMapper.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E5BD8974C89AACFA3CF75E74 /* libPods-LeishMapper.a */; };
 		E604453818568AFA00AD75A1 /* StatisticsTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E604453718568AFA00AD75A1 /* StatisticsTVC.m */; };
 		E604CD2619532D4500651A66 /* SMCalloutView.m in Sources */ = {isa = PBXBuildFile; fileRef = E604CD2519532D4500651A66 /* SMCalloutView.m */; };
 		E60FC7921A12F5AB0036369F /* CMPopTipView.m in Sources */ = {isa = PBXBuildFile; fileRef = E60FC7911A12F5AB0036369F /* CMPopTipView.m */; };
-		E61B0A521874F6E20081FFA5 /* ReferenceConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = E61B0A511874F6E20081FFA5 /* ReferenceConverter.m */; };
 		E61B0A581875E1530081FFA5 /* Measurement.m in Sources */ = {isa = PBXBuildFile; fileRef = E61B0A571875E1530081FFA5 /* Measurement.m */; };
 		E61E726C1760EA3300DBB216 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E61E726B1760EA3300DBB216 /* MobileCoreServices.framework */; };
 		E62A0D4B1BB4E3E5005FF87B /* CMSSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E62A0D3C1BB4E373005FF87B /* CMSSupport.framework */; };
@@ -347,6 +347,8 @@
 		4BFF617D1BAC9BFE00FE7853 /* HeaderAddedTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeaderAddedTVC.m; sourceTree = "<group>"; };
 		4BFF617E1BAC9BFE00FE7853 /* ORKAnswerFormat+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ORKAnswerFormat+Helper.h"; sourceTree = "<group>"; };
 		4BFF617F1BAC9BFE00FE7853 /* ORKAnswerFormat+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ORKAnswerFormat+Helper.m"; sourceTree = "<group>"; };
+		650DAD801E7DD2B8004DBA4A /* ReferenceObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReferenceObject.m; sourceTree = "<group>"; };
+		650DAD911E7DD2EA004DBA4A /* ReferenceObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReferenceObject.h; sourceTree = "<group>"; };
 		654FAE991E6CB6D0005C5A53 /* CoinsByRegion.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CoinsByRegion.plist; sourceTree = "<group>"; };
 		654FAEAA1E6D2465005C5A53 /* CoinsByRegionPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoinsByRegionPicker.h; sourceTree = "<group>"; };
 		654FAEAB1E6D2465005C5A53 /* CoinsByRegionPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoinsByRegionPicker.m; sourceTree = "<group>"; };
@@ -358,8 +360,6 @@
 		E604CD2519532D4500651A66 /* SMCalloutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMCalloutView.m; sourceTree = "<group>"; };
 		E60FC7901A12F5AB0036369F /* CMPopTipView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPopTipView.h; sourceTree = "<group>"; };
 		E60FC7911A12F5AB0036369F /* CMPopTipView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPopTipView.m; sourceTree = "<group>"; };
-		E61B0A501874F6E20081FFA5 /* ReferenceConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReferenceConverter.h; sourceTree = "<group>"; };
-		E61B0A511874F6E20081FFA5 /* ReferenceConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReferenceConverter.m; sourceTree = "<group>"; };
 		E61B0A561875E1530081FFA5 /* Measurement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Measurement.h; sourceTree = "<group>"; };
 		E61B0A571875E1530081FFA5 /* Measurement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Measurement.m; sourceTree = "<group>"; };
 		E61E726B1760EA3300DBB216 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
@@ -862,8 +862,6 @@
 				E637287F1795BB6F000E2ADC /* MoleNameGenerator.m */,
 				3651E99017DED52B0022DB2B /* MolePin.h */,
 				3651E99117DED52B0022DB2B /* MolePin.m */,
-				E61B0A501874F6E20081FFA5 /* ReferenceConverter.h */,
-				E61B0A511874F6E20081FFA5 /* ReferenceConverter.m */,
 				E6FDF87F1B8AC52600EE7037 /* UIAlertController+Helper.h */,
 				E6FDF8801B8AC52600EE7037 /* UIAlertController+Helper.m */,
 				E6F7516D17BA9AF500A7AB5A /* VariableStore.h */,
@@ -872,6 +870,8 @@
 				E62A0D5B1BBA2A7A005FF87B /* DemoKLCPopupHelper.m */,
 				654FAEAA1E6D2465005C5A53 /* CoinsByRegionPicker.h */,
 				654FAEAB1E6D2465005C5A53 /* CoinsByRegionPicker.m */,
+				650DAD911E7DD2EA004DBA4A /* ReferenceObject.h */,
+				650DAD801E7DD2B8004DBA4A /* ReferenceObject.m */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -1317,7 +1317,6 @@
 				E6CFFE9917873FCB008ACEDC /* Measurement+MakeAndMod.m in Sources */,
 				E6883B9E1B95E3AB00F5A9A5 /* APCDataArchiveUploader.m in Sources */,
 				E60FC7921A12F5AB0036369F /* CMPopTipView.m in Sources */,
-				E61B0A521874F6E20081FFA5 /* ReferenceConverter.m in Sources */,
 				E6443C051B798072007DE110 /* IneligibleViewController.m in Sources */,
 				E64CE58E1B882443007105FB /* BridgeSignUpRKModule.m in Sources */,
 				654FAEAC1E6D2465005C5A53 /* CoinsByRegionPicker.m in Sources */,
@@ -1402,6 +1401,7 @@
 				E634434917E161BF00728FB6 /* Zone.m in Sources */,
 				E634434C17E161BF00728FB6 /* Mole.m in Sources */,
 				4BF5AADF1BA9833F0012B490 /* DashboardBiggestMoleCell.m in Sources */,
+				650DAD811E7DD2B8004DBA4A /* ReferenceObject.m in Sources */,
 				E64808191820E5D400A7E644 /* MeasurementComparsionViewController.m in Sources */,
 				E62A0D501BB500D0005FF87B /* MoleWasRemovedRKModule.m in Sources */,
 				E65CABB617ECF20100AAC5D3 /* UIImage+Extras.m in Sources */,
@@ -1523,7 +1523,7 @@
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = N64V7A526Z;
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"<Multiple/**",
 					"values>/**",
@@ -1558,7 +1558,7 @@
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = N64V7A526Z;
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"<Multiple/**",
 					"values>/**",

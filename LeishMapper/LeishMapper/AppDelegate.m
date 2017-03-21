@@ -93,6 +93,8 @@
     
     [self renameLegacyStoredFilenamesInCoreData];
     
+    [self upgradeReferenceObjectCoding];
+    
     //[self setOnboardingBooleansBackToInitialValues];
 
 //Do we want to try to send any unsent measurements here upon launch? Same for surveys?
@@ -345,6 +347,71 @@
     [self saveContext];
 }
 
+-(void)upgradeReferenceObjectCoding
+{
+    BOOL isUpgradeRequired = TRUE;
+    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+
+    // check if upgrade required
+    NSString *currRefObjectCode = [ud objectForKey:@"referenceObject"];
+    if ([currRefObjectCode containsString:@"PREDEF"] || [currRefObjectCode containsString:@"CUSTOM"])
+    {
+        isUpgradeRequired = FALSE;
+    }
+    
+    if (isUpgradeRequired)
+    {
+        // upgrade user defaults
+        NSString *modifiedCode = [self upgradeReferenceObjectCodingHelper:currRefObjectCode];
+        [ud setObject:modifiedCode forKey:@"referenceObject"];
+        NSNumber *diameter = [self upgradeReferenceObjectDiameterCodingHelper:currRefObjectCode];
+        [ud setObject:diameter forKey:@"referenceObjectDiameter"];
+        
+        // upgrade Core Data
+        NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Measurement"];
+        NSArray *measurementMatches = [self.managedObjectContext executeFetchRequest:request error:nil];
+        
+        for (Measurement *measurement in measurementMatches)
+        {
+            modifiedCode = [self upgradeReferenceObjectCodingHelper:measurement.referenceObject];
+            measurement.referenceObject = modifiedCode;
+        }
+        [self.managedObjectContext updatedObjects];
+    }
+}
+
+-(NSString *)upgradeReferenceObjectCodingHelper:(NSString *)currReferenceStr
+{
+    NSString *modifiedCode = nil;
+    
+    if ([currReferenceStr containsString:@"Penny"]
+        || [currReferenceStr containsString:@"Nickel"]
+        || [currReferenceStr containsString:@"Dime"]
+        || [currReferenceStr containsString:@"Quarter"])
+    {
+        modifiedCode = [NSString stringWithFormat:@"PREDEF|COIN|US|%@",currReferenceStr];
+    }
+    else
+    {
+        modifiedCode = @"CUSTOM";
+    }
+
+    return modifiedCode;
+}
+
+-(NSNumber *)upgradeReferenceObjectDiameterCodingHelper:(NSString *)currReferenceStr
+{
+    NSNumber *diameter = nil;
+    
+    if ([currReferenceStr containsString:@"Penny"]) diameter = @19.05;
+    else if ([currReferenceStr containsString:@"Nickel"]) diameter = @21.21;
+    else if ([currReferenceStr containsString:@"Dime"]) diameter = @17.91;
+    else if ([currReferenceStr containsString:@"Quarter"]) diameter = @24.26;
+    else diameter = [NSNumber numberWithFloat:currReferenceStr.floatValue];
+    
+    return diameter;
+}
+
 -(void)overridePageControlColors
 {
     UIPageControl *pageControl = [UIPageControl appearance];
@@ -365,10 +432,20 @@
         [standardUserDefaults setInteger:firstValidMoleID forKey:@"nextMoleID"];
     }
     //Setup default reference object
+    if (![standardUserDefaults objectForKey:@"referenceCountryCode"])
+    {
+        NSString *defaultReferenceCountryCode = @"US"; // default to US
+        [standardUserDefaults setValue:defaultReferenceCountryCode forKey:@"referenceCountryCode"];
+    }
     if (![standardUserDefaults objectForKey:@"referenceObject"])
     {
-        NSString *referenceObject = @"Dime";
-        [standardUserDefaults setValue:referenceObject forKey:@"referenceObject"];
+        NSString *defaultReferenceObject = @"PREDEF|COIN|US|Dime"; // default to US Dime coin
+        [standardUserDefaults setValue:defaultReferenceObject forKey:@"referenceObject"];
+    }
+    if (![standardUserDefaults objectForKey:@"referenceObjectDiameter"])
+    {
+        NSNumber *defaultReferenceDiameter = @17.91; // size of US Dime coin
+        [standardUserDefaults setValue:defaultReferenceDiameter forKey:@"referenceObjectDiameter"];
     }
     if (![standardUserDefaults objectForKey:@"UseIncrementalNaming"])
     {
@@ -565,9 +642,14 @@
     
     NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"LeishMapper.sqlite"];
     
+    // Automatic Lightweight Migration
+    NSMutableDictionary *options = [NSMutableDictionary dictionaryWithObjectsAndKeys:
+                                    [NSNumber numberWithBool:YES], NSMigratePersistentStoresAutomaticallyOption,
+                                    [NSNumber numberWithBool:YES], NSInferMappingModelAutomaticallyOption, nil];
+
     NSError *error = nil;
     _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
-    if (![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:&error]) {
+    if (![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:options error:&error]) {
         /*
          Replace this implementation with code to handle the error appropriately.
          

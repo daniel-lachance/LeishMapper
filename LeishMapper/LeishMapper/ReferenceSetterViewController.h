@@ -34,11 +34,8 @@
 
 
 #import <UIKit/UIKit.h>
-#import "Mole.h"
-#import "Mole+MakeAndMod.h"
 #import "Measurement.h"
 #import "Measurement+MakeAndMod.h"
-#import "ReferenceConverter.h"
 #import "CountryPicker.h"
 #import "CoinsByRegionPicker.h"
 
@@ -48,7 +45,7 @@
 //textfield in the moleViewController must be accounted for as the referenceNames are updated and also in the Reference Converter class
 
 @property (weak, nonatomic) IBOutlet UILabel *currentReferenceObjectLabel;
-@property (weak, nonatomic) IBOutlet CoinsByRegionPicker *pickerView;
+@property (weak, nonatomic) IBOutlet CoinsByRegionPicker *coinPickerView;
 @property (weak, nonatomic) IBOutlet UITextField *customReferenceTextField;
 @property (weak, nonatomic) IBOutlet UITableViewCell *customReferenceTableViewCell;
 @property (weak, nonatomic) IBOutlet UITableViewCell *coinTableViewCell;
@@ -57,10 +54,10 @@
 @property BOOL coinPickerVisible;
 @property (weak, nonatomic) IBOutlet UILabel *countryRowLabel;
 @property (weak, nonatomic) IBOutlet UILabel *coinRowLabel;
-
-//@property (nonatomic, strong) NSArray *referencesInPicker;
-@property (nonatomic, strong) ReferenceConverter *refConverter;
-
+@property BOOL isCustomReferenceMeasure;
+@property NSNumber *referenceObjectDiameter;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *cancelBarButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *doneBarButton;
 @property (nonatomic, strong) NSManagedObjectContext *context;
 @property (nonatomic, strong) Measurement *measurement;
 

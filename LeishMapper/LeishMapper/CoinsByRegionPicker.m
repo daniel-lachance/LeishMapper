@@ -28,7 +28,7 @@ bool isRegionChanged = TRUE;
     static NSArray *_coinNames = nil;
     if (!_coinNames || isRegionChanged)
     {
-        _coinNames = [[self coinsByRegionByName].allKeys copy];
+        _coinNames = [[[self coinNamesByDiameter].allValues sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)] copy];
     }
     return _coinNames;
 }
@@ -38,57 +38,57 @@ bool isRegionChanged = TRUE;
     static NSArray *_coinDiameters = nil;
     if (!_coinDiameters || isRegionChanged)
     {
-        _coinDiameters = [[self coinsByRegionByDiameter].allKeys copy];
+        _coinDiameters = [[[self coinDiametersByName] objectsForKeys:[self coinNames] notFoundMarker:@""] copy];
     }
     return _coinDiameters;
 }
 
-- (NSDictionary *)coinsByRegionByName
+- (NSDictionary *)coinNamesByDiameter
 {
-    static NSDictionary *_coinsByRegionByName = nil;
-    if (!_coinsByRegionByName || isRegionChanged)
+    static NSDictionary *_coinNamesByDiameter = nil;
+    if (!_coinNamesByDiameter || isRegionChanged)
     {
-        NSMutableDictionary *coinsByName = [NSMutableDictionary dictionary];
+        NSMutableDictionary *coinNamesByDiameter = [NSMutableDictionary dictionary];
         NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"CoinsByRegion" ofType:@"plist"];
         NSArray *regions = [NSArray arrayWithContentsOfFile:plistPath];
         for (NSDictionary* region in regions)
         {
-            if ([[self regionCode] caseInsensitiveCompare:[region objectForKey:@"code"]] == 0)
+            if ([[self regionCode] caseInsensitiveCompare:[region objectForKey:@"code"]] == NSOrderedSame)
             {
                 NSArray *coins = [region objectForKey:@"coins"];
                 for (NSDictionary *coin in coins)
                 {
                     NSString *coinName = [coin objectForKey:@"common-name"];
                     NSNumber *diameter = [coin objectForKey:@"diameter"];
-                    coinsByName[coinName] = diameter;
+                    coinNamesByDiameter[diameter] = coinName;
                 }
                 break;
             }
         }
-        if (coinsByName.count == 0)
+        if (coinNamesByDiameter.count == 0)
         {
             NSString *noCoins = @"No coins";
-            coinsByName[noCoins] = @0;
+            coinNamesByDiameter[@0] = noCoins;
         }
-        _coinsByRegionByName = [coinsByName copy];
+        _coinNamesByDiameter = [coinNamesByDiameter copy];
     }
-    return _coinsByRegionByName;
+    return _coinNamesByDiameter;
 }
 
-- (NSDictionary *)coinsByRegionByDiameter
+- (NSDictionary *)coinDiametersByName
 {
-    static NSDictionary *_coinsByRegionByDiameter = nil;
-    if (!_coinsByRegionByDiameter || isRegionChanged)
+    static NSDictionary *_coinDiametersByName = nil;
+    if (!_coinDiametersByName || isRegionChanged)
     {
-        NSDictionary *coinsByName = [self coinsByRegionByName];
-        NSMutableDictionary *coinsByDiameter = [NSMutableDictionary dictionary];
-        for (NSString *coinName in coinsByName)
+        NSDictionary *coinNamesByDiameter = [self coinNamesByDiameter];
+        NSMutableDictionary *coinDiametersByName = [NSMutableDictionary dictionary];
+        for (NSNumber *diameter in coinNamesByDiameter)
         {
-            coinsByDiameter[coinsByName[coinName]] = coinName;
+            coinDiametersByName[coinNamesByDiameter[diameter]] = diameter;
         }
-        _coinsByRegionByDiameter = [coinsByDiameter copy];
+        _coinDiametersByName = [coinDiametersByName copy];
     }
-    return _coinsByRegionByDiameter;
+    return _coinDiametersByName;
 }
 
 - (void)setUp
@@ -201,34 +201,6 @@ bool isRegionChanged = TRUE;
 {
     return (NSInteger)[self coinNames].count;
 }
-
-//- (UIView *)pickerView:(__unused UIPickerView *)pickerView viewForRow:(NSInteger)row
-//          forComponent:(__unused NSInteger)component reusingView:(UIView *)view
-//{
-//    if (!view)
-//    {
-//        view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 280, 30)];
-//        
-//        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(35, 3, 245, 24)];
-//        label.backgroundColor = [UIColor clearColor];
-//        label.tag = 1;
-//        if (self.labelFont)
-//        {
-//            label.font = self.labelFont;
-//        }
-//        [view addSubview:label];
-//
-//        /*
-//        UIImageView *flagView = [[UIImageView alloc] initWithFrame:CGRectMake(3, 3, 24, 24)];
-//        flagView.contentMode = UIViewContentModeScaleAspectFit;
-//        flagView.tag = 2;
-//        [view addSubview:flagView];
-//         */
-//    }
-//
-//    ((UILabel *)[view viewWithTag:1]).text = [self coinNames][(NSUInteger)row];
-//    return view;
-//}
 
 - (NSAttributedString *)pickerView:(UIPickerView *)pickerView attributedTitleForRow:(NSInteger)row forComponent:(NSInteger)component
 {

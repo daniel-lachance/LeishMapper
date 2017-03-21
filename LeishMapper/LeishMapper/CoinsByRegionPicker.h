@@ -20,12 +20,13 @@
 
 @interface CoinsByRegionPicker : UIPickerView
 
-/// Returns an array of all coins in current region in denominational order.
+/// Returns an array of all coin names in current region in alphabetical order.
 - (NSArray<NSString *> *)coinNames;
 
-/// Returns an array of all coin diameters in current region. The coin are sorted
-/// by denominational order, and their indices match the indices of their respective
-/// coin name in the 'coinNames' list.
+/// Returns an array of all coin diameters in current region. The diameters are sorted
+/// by coin name, and their indices match the indices of their respective
+/// coin name in the 'coinNames' list, but note that this means that the diameters
+/// themselves are not sorted numerically.
 - (NSArray<NSNumber *> *)coinDiameters;
 
 /// The delegate. This implements the CoinsByRegionPickerDelegate protocol,
