@@ -50,7 +50,7 @@
     
     _viewMoleBtn.layer.cornerRadius = 5; // this value vary as per your desire
     _viewMoleBtn.clipsToBounds = YES;
-    if ([[[DashboardModel sharedInstance] nameForBiggestMole] isEqualToString:@"No moles measured yet!"])
+    if ([[[DashboardModel sharedInstance] nameForBiggestMole] isEqualToString:@"No lesions measured yet!"])
     {
         _viewMoleBtn.enabled = NO;
         _viewMoleBtn.alpha = 0.5;
@@ -96,9 +96,9 @@
     _biggestMoleLabel.text = biggestMoleName;
     _locatedMoleLabel.text = @"";
     
-    if (![biggestMoleName isEqualToString:@"No moles measured yet!"])
+    if (![biggestMoleName isEqualToString:@"No lesions measured yet!"])
     {
-        _biggestMoleLabel.text = [NSString stringWithFormat:@"Your biggest mole is %@ and is", biggestMoleName];
+        _biggestMoleLabel.text = [NSString stringWithFormat:@"Your biggest lesion is %@ and is", biggestMoleName];
         _locatedMoleLabel.text = [NSString stringWithFormat:@"located in the %@ zone.", zoneMoleName];
         
         [self updateStringColorWithLabel:_biggestMoleLabel withString:biggestMoleName];

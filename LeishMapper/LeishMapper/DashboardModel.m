@@ -259,7 +259,7 @@
 //Returns the human-readable name for the biggest measured mole, or "No moles measured yet!" if no valid measurements
 -(NSString *)nameForBiggestMole
 {
-    NSString *moleName = @"No moles measured yet!";
+    NSString *moleName = @"No lesions measured yet!";
     Measurement *biggest = [self measurementForBiggestMole];
     if (biggest.measurementID != nil)
     {
