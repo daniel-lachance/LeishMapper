@@ -1111,10 +1111,10 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0700;
-				ORGANIZATIONNAME = "Webster Apps";
+				ORGANIZATIONNAME = "Adaptive Aptitude Inc.";
 				TargetAttributes = {
 					E6F93E7E16DB273A0068B7B6 = {
-						DevelopmentTeam = N64V7A526Z;
+						DevelopmentTeam = D2YY7AW9H4;
 						SystemCapabilities = {
 							com.apple.HealthKit = {
 								enabled = 1;
@@ -1522,7 +1522,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 2;
-				DEVELOPMENT_TEAM = N64V7A526Z;
+				DEVELOPMENT_TEAM = D2YY7AW9H4;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"<Multiple/**",
@@ -1536,7 +1536,7 @@
 				INFOPLIST_FILE = "LeishMapper/LeishMapper-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = org.uoc.leishmapper;
+				PRODUCT_BUNDLE_IDENTIFIER = com.adaptiveaptitude.leishmapper;
 				PRODUCT_NAME = LeishMapper;
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
@@ -1557,7 +1557,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 2;
-				DEVELOPMENT_TEAM = N64V7A526Z;
+				DEVELOPMENT_TEAM = D2YY7AW9H4;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"<Multiple/**",
@@ -1571,7 +1571,7 @@
 				INFOPLIST_FILE = "LeishMapper/LeishMapper-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = org.uoc.leishmapper;
+				PRODUCT_BUNDLE_IDENTIFIER = com.adaptiveaptitude.leishmapper;
 				PRODUCT_NAME = LeishMapper;
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
