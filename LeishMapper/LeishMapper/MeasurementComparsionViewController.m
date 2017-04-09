@@ -113,7 +113,7 @@
     [formatter setDateFormat:@"MMM dd, yyyy HH:mm"];
     
     NSString *stringFromDate = [formatter stringFromDate:self.moleMeasurement.date];
-    stringFromDate = [stringFromDate stringByAppendingString:@"\nMole Size: "];
+    stringFromDate = [stringFromDate stringByAppendingString:@"\nLesion Size: "];
     
     float roundedDiameter = [[DashboardModel sharedInstance] correctFloat:[self.moleMeasurement.absoluteMoleDiameter floatValue]];
     NSString* formattedSize = [NSString stringWithFormat:@"%.1f",roundedDiameter];
