@@ -1,42 +1,57 @@
 PODS:
-  - AFNetworking (2.5.4):
-    - AFNetworking/NSURLConnection (= 2.5.4)
-    - AFNetworking/NSURLSession (= 2.5.4)
-    - AFNetworking/Reachability (= 2.5.4)
-    - AFNetworking/Security (= 2.5.4)
-    - AFNetworking/Serialization (= 2.5.4)
-    - AFNetworking/UIKit (= 2.5.4)
-  - AFNetworking/NSURLConnection (2.5.4):
+  - AFNetworking (2.6.0):
+    - AFNetworking/NSURLConnection (= 2.6.0)
+    - AFNetworking/NSURLSession (= 2.6.0)
+    - AFNetworking/Reachability (= 2.6.0)
+    - AFNetworking/Security (= 2.6.0)
+    - AFNetworking/Serialization (= 2.6.0)
+    - AFNetworking/UIKit (= 2.6.0)
+  - AFNetworking/NSURLConnection (2.6.0):
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
-  - AFNetworking/NSURLSession (2.5.4):
+  - AFNetworking/NSURLSession (2.6.0):
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
-  - AFNetworking/Reachability (2.5.4)
-  - AFNetworking/Security (2.5.4)
-  - AFNetworking/Serialization (2.5.4)
-  - AFNetworking/UIKit (2.5.4):
+  - AFNetworking/Reachability (2.6.0)
+  - AFNetworking/Security (2.6.0)
+  - AFNetworking/Serialization (2.6.0)
+  - AFNetworking/UIKit (2.6.0):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
-  - KLCPopup (HEAD based on 1.0)
+  - CountryPicker (1.3)
+  - KLCPopup (1.1)
   - NSString-Hashes (1.2.2)
   - ResearchKit (1.2.1)
-  - zipzap (8.0.4)
+  - zipzap (8.0.6)
 
 DEPENDENCIES:
-  - AFNetworking (~> 2.5)
-  - KLCPopup (HEAD)
-  - NSString-Hashes (~> 1.2.2)
-  - ResearchKit (~> 1.2)
-  - zipzap (~> 8.0)
+  - AFNetworking (= 2.6.0)
+  - CountryPicker (~> 1.3)
+  - KLCPopup (from `https://github.com/jmascia/KLCPopup`, tag `1.1`)
+  - NSString-Hashes (~> 1.2)
+  - ResearchKit (= 1.2.1)
+  - zipzap (= 8.0.6)
+
+EXTERNAL SOURCES:
+  KLCPopup:
+    :git: https://github.com/jmascia/KLCPopup
+    :tag: '1.1'
+
+CHECKOUT OPTIONS:
+  KLCPopup:
+    :git: https://github.com/jmascia/KLCPopup
+    :tag: '1.1'
 
 SPEC CHECKSUMS:
-  AFNetworking: 05edc0ac4c4c8cf57bcf4b84be5b0744b6d8e71e
-  KLCPopup: 76c5a19227977f1e53d85236f9ef42257c168d98
+  AFNetworking: 79f7eb1a0fcfa7beb409332b2ca49afe9ce53b05
+  CountryPicker: 664c26411d833bb068c80beb15dc951eadde2911
+  KLCPopup: f233d3334c4808d1087ede03b3ae72fc3fc8a2aa
   NSString-Hashes: c3848d809e92650e4fb17db5d8cc4bd2aa1eaddd
   ResearchKit: 606d20301e576157fb0accc57f63aba5e1f3a15f
-  zipzap: 45be5e182aead61fbb8300ddb4766f8e82a557c4
+  zipzap: 9de722cee38b7c3a8b1134913a8a67ab36cb97c1
 
-COCOAPODS: 0.39.0
+PODFILE CHECKSUM: cea58734c3480c5ac8987294e2bf3f01bb9a2fab
+
+COCOAPODS: 1.2.0

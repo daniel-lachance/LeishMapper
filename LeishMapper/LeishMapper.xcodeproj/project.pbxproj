@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		247680369E0E6FB8B6CF2D35 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AFBE2AA09404AC67681B8B5 /* libPods.a */; };
 		360089AB1819AE47004486C0 /* UIImage+Alpha.m in Sources */ = {isa = PBXBuildFile; fileRef = 360089A61819AE47004486C0 /* UIImage+Alpha.m */; };
 		360089AC1819AE47004486C0 /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = 360089A81819AE47004486C0 /* UIImage+Resize.m */; };
 		360089AD1819AE47004486C0 /* UIImage+RoundedCorner.m in Sources */ = {isa = PBXBuildFile; fileRef = 360089AA1819AE47004486C0 /* UIImage+RoundedCorner.m */; };
@@ -60,10 +59,13 @@
 		4BFF61871BAC9BFE00FE7853 /* CrossFadeSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BFF617B1BAC9BFE00FE7853 /* CrossFadeSegue.m */; };
 		4BFF61881BAC9BFE00FE7853 /* HeaderAddedTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BFF617D1BAC9BFE00FE7853 /* HeaderAddedTVC.m */; };
 		4BFF61891BAC9BFE00FE7853 /* ORKAnswerFormat+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BFF617F1BAC9BFE00FE7853 /* ORKAnswerFormat+Helper.m */; };
+		650DAD811E7DD2B8004DBA4A /* ReferenceObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 650DAD801E7DD2B8004DBA4A /* ReferenceObject.m */; };
+		654FAE9A1E6CB6D0005C5A53 /* CoinsByRegion.plist in Resources */ = {isa = PBXBuildFile; fileRef = 654FAE991E6CB6D0005C5A53 /* CoinsByRegion.plist */; };
+		654FAEAC1E6D2465005C5A53 /* CoinsByRegionPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 654FAEAB1E6D2465005C5A53 /* CoinsByRegionPicker.m */; };
+		9F54E632C5050B3E406F7A33 /* libPods-LeishMapper.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E5BD8974C89AACFA3CF75E74 /* libPods-LeishMapper.a */; };
 		E604453818568AFA00AD75A1 /* StatisticsTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E604453718568AFA00AD75A1 /* StatisticsTVC.m */; };
 		E604CD2619532D4500651A66 /* SMCalloutView.m in Sources */ = {isa = PBXBuildFile; fileRef = E604CD2519532D4500651A66 /* SMCalloutView.m */; };
 		E60FC7921A12F5AB0036369F /* CMPopTipView.m in Sources */ = {isa = PBXBuildFile; fileRef = E60FC7911A12F5AB0036369F /* CMPopTipView.m */; };
-		E61B0A521874F6E20081FFA5 /* ReferenceConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = E61B0A511874F6E20081FFA5 /* ReferenceConverter.m */; };
 		E61B0A581875E1530081FFA5 /* Measurement.m in Sources */ = {isa = PBXBuildFile; fileRef = E61B0A571875E1530081FFA5 /* Measurement.m */; };
 		E61E726C1760EA3300DBB216 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E61E726B1760EA3300DBB216 /* MobileCoreServices.framework */; };
 		E62A0D4B1BB4E3E5005FF87B /* CMSSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E62A0D3C1BB4E373005FF87B /* CMSSupport.framework */; };
@@ -253,6 +255,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		05FE3012FF68DEBE26A9C86F /* Pods-LeishMapper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LeishMapper.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LeishMapper/Pods-LeishMapper.debug.xcconfig"; sourceTree = "<group>"; };
+		25036E4E063855EE1505CD94 /* Pods-LeishMapper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LeishMapper.release.xcconfig"; path = "Pods/Target Support Files/Pods-LeishMapper/Pods-LeishMapper.release.xcconfig"; sourceTree = "<group>"; };
 		360089A51819AE47004486C0 /* UIImage+Alpha.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Alpha.h"; sourceTree = "<group>"; };
 		360089A61819AE47004486C0 /* UIImage+Alpha.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Alpha.m"; sourceTree = "<group>"; };
 		360089A71819AE47004486C0 /* UIImage+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Resize.h"; sourceTree = "<group>"; };
@@ -277,7 +281,6 @@
 		380B921B1BAC50700026D052 /* DBSizeOverTimeCellTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBSizeOverTimeCellTableViewCell.h; sourceTree = "<group>"; };
 		380B921C1BAC50700026D052 /* DBSizeOverTimeCellTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBSizeOverTimeCellTableViewCell.m; sourceTree = "<group>"; };
 		380B921D1BAC50700026D052 /* DBSizeOverTimeCellTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DBSizeOverTimeCellTableViewCell.xib; sourceTree = "<group>"; };
-		3AFBE2AA09404AC67681B8B5 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		43D993361BA5067E0077073D /* DashboardActivityCompletionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DashboardActivityCompletionCell.h; sourceTree = "<group>"; };
 		43D993371BA5067E0077073D /* DashboardActivityCompletionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DashboardActivityCompletionCell.m; sourceTree = "<group>"; };
 		43D993381BA5067E0077073D /* DashboardActivityCompletionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DashboardActivityCompletionCell.xib; sourceTree = "<group>"; };
@@ -344,17 +347,19 @@
 		4BFF617D1BAC9BFE00FE7853 /* HeaderAddedTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeaderAddedTVC.m; sourceTree = "<group>"; };
 		4BFF617E1BAC9BFE00FE7853 /* ORKAnswerFormat+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ORKAnswerFormat+Helper.h"; sourceTree = "<group>"; };
 		4BFF617F1BAC9BFE00FE7853 /* ORKAnswerFormat+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ORKAnswerFormat+Helper.m"; sourceTree = "<group>"; };
-		5F2A2DAC151494DC5633C638 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		650DAD801E7DD2B8004DBA4A /* ReferenceObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReferenceObject.m; sourceTree = "<group>"; };
+		650DAD911E7DD2EA004DBA4A /* ReferenceObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReferenceObject.h; sourceTree = "<group>"; };
+		654FAE991E6CB6D0005C5A53 /* CoinsByRegion.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CoinsByRegion.plist; sourceTree = "<group>"; };
+		654FAEAA1E6D2465005C5A53 /* CoinsByRegionPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoinsByRegionPicker.h; sourceTree = "<group>"; };
+		654FAEAB1E6D2465005C5A53 /* CoinsByRegionPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoinsByRegionPicker.m; sourceTree = "<group>"; };
 		80357F271BCACB7C0028FD38 /* LeishMapper.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LeishMapper.entitlements; sourceTree = SOURCE_ROOT; };
-		E0E2AD0012A56BE2CC311760 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		E5BD8974C89AACFA3CF75E74 /* libPods-LeishMapper.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LeishMapper.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E604453618568AFA00AD75A1 /* StatisticsTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatisticsTVC.h; sourceTree = "<group>"; };
 		E604453718568AFA00AD75A1 /* StatisticsTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatisticsTVC.m; sourceTree = "<group>"; };
 		E604CD2419532D4500651A66 /* SMCalloutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMCalloutView.h; sourceTree = "<group>"; };
 		E604CD2519532D4500651A66 /* SMCalloutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMCalloutView.m; sourceTree = "<group>"; };
 		E60FC7901A12F5AB0036369F /* CMPopTipView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPopTipView.h; sourceTree = "<group>"; };
 		E60FC7911A12F5AB0036369F /* CMPopTipView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPopTipView.m; sourceTree = "<group>"; };
-		E61B0A501874F6E20081FFA5 /* ReferenceConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReferenceConverter.h; sourceTree = "<group>"; };
-		E61B0A511874F6E20081FFA5 /* ReferenceConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReferenceConverter.m; sourceTree = "<group>"; };
 		E61B0A561875E1530081FFA5 /* Measurement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Measurement.h; sourceTree = "<group>"; };
 		E61B0A571875E1530081FFA5 /* Measurement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Measurement.m; sourceTree = "<group>"; };
 		E61E726B1760EA3300DBB216 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
@@ -544,7 +549,7 @@
 				E6F93E8416DB273A0068B7B6 /* UIKit.framework in Frameworks */,
 				E6F93E8616DB273A0068B7B6 /* Foundation.framework in Frameworks */,
 				E6F93E8816DB273B0068B7B6 /* CoreGraphics.framework in Frameworks */,
-				247680369E0E6FB8B6CF2D35 /* libPods.a in Frameworks */,
+				9F54E632C5050B3E406F7A33 /* libPods-LeishMapper.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -690,6 +695,15 @@
 				4BFF616A1BAC992100FE7853 /* SharingOptionsOnlyRKModule.m */,
 			);
 			name = Profile;
+			sourceTree = "<group>";
+		};
+		53EAA0B0410A033D5D38E516 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				05FE3012FF68DEBE26A9C86F /* Pods-LeishMapper.debug.xcconfig */,
+				25036E4E063855EE1505CD94 /* Pods-LeishMapper.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		E62A0D361BB4E373005FF87B /* Products */ = {
@@ -848,14 +862,16 @@
 				E637287F1795BB6F000E2ADC /* MoleNameGenerator.m */,
 				3651E99017DED52B0022DB2B /* MolePin.h */,
 				3651E99117DED52B0022DB2B /* MolePin.m */,
-				E61B0A501874F6E20081FFA5 /* ReferenceConverter.h */,
-				E61B0A511874F6E20081FFA5 /* ReferenceConverter.m */,
 				E6FDF87F1B8AC52600EE7037 /* UIAlertController+Helper.h */,
 				E6FDF8801B8AC52600EE7037 /* UIAlertController+Helper.m */,
 				E6F7516D17BA9AF500A7AB5A /* VariableStore.h */,
 				E6F7516E17BA9AF500A7AB5A /* VariableStore.m */,
 				E62A0D5A1BBA2A7A005FF87B /* DemoKLCPopupHelper.h */,
 				E62A0D5B1BBA2A7A005FF87B /* DemoKLCPopupHelper.m */,
+				654FAEAA1E6D2465005C5A53 /* CoinsByRegionPicker.h */,
+				654FAEAB1E6D2465005C5A53 /* CoinsByRegionPicker.m */,
+				650DAD911E7DD2EA004DBA4A /* ReferenceObject.h */,
+				650DAD801E7DD2B8004DBA4A /* ReferenceObject.m */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -963,7 +979,7 @@
 				E6F93E8916DB273B0068B7B6 /* LeishMapper */,
 				E6F93E8216DB273A0068B7B6 /* Frameworks */,
 				E6F93E8016DB273A0068B7B6 /* Products */,
-				F971DB6F63E180C8D2E90030 /* Pods */,
+				53EAA0B0410A033D5D38E516 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -994,7 +1010,7 @@
 				E6F93E8316DB273A0068B7B6 /* UIKit.framework */,
 				E6F93E8516DB273A0068B7B6 /* Foundation.framework */,
 				E6F93E8716DB273A0068B7B6 /* CoreGraphics.framework */,
-				3AFBE2AA09404AC67681B8B5 /* libPods.a */,
+				E5BD8974C89AACFA3CF75E74 /* libPods-LeishMapper.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1046,6 +1062,7 @@
 				E6F93E8C16DB273B0068B7B6 /* InfoPlist.strings */,
 				E6F93E8F16DB273B0068B7B6 /* main.m */,
 				E6F93E9116DB273B0068B7B6 /* LeishMapper-Prefix.pch */,
+				654FAE991E6CB6D0005C5A53 /* CoinsByRegion.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -1061,15 +1078,6 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		F971DB6F63E180C8D2E90030 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				5F2A2DAC151494DC5633C638 /* Pods.debug.xcconfig */,
-				E0E2AD0012A56BE2CC311760 /* Pods.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1077,13 +1085,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E6F93EA316DB273B0068B7B6 /* Build configuration list for PBXNativeTarget "LeishMapper" */;
 			buildPhases = (
-				8B8D3B2B91CC23C42E090672 /* Check Pods Manifest.lock */,
+				FCFF27213A967F0B624577BF /* [CP] Check Pods Manifest.lock */,
 				E6F93E7B16DB273A0068B7B6 /* Sources */,
 				E6F93E7C16DB273A0068B7B6 /* Frameworks */,
 				E6F93E7D16DB273A0068B7B6 /* Resources */,
 				E67F764B1AE3153D00B70E4F /* Embed Frameworks */,
-				9302AB6B79AAC998C3031284 /* Copy Pods Resources */,
-				4866A8476B574A63234B992C /* Embed Pods Frameworks */,
+				01E731936B9BABAC07C12082 /* [CP] Embed Pods Frameworks */,
+				0F599C500C68B6ACD84DD765 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1237,55 +1245,56 @@
 				4B6DB7AB1BA977AE000EE645 /* DashBoardMeasurementCell.xib in Resources */,
 				4BD05B401BC2796C00FD6D85 /* InvolveCollectionViewCell.xib in Resources */,
 				E65F29881972C421000F90BB /* AppIcon.xcassets in Resources */,
+				654FAE9A1E6CB6D0005C5A53 /* CoinsByRegion.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		4866A8476B574A63234B992C /* Embed Pods Frameworks */ = {
+		01E731936B9BABAC07C12082 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LeishMapper/Pods-LeishMapper-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		8B8D3B2B91CC23C42E090672 /* Check Pods Manifest.lock */ = {
+		0F599C500C68B6ACD84DD765 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LeishMapper/Pods-LeishMapper-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		9302AB6B79AAC998C3031284 /* Copy Pods Resources */ = {
+		FCFF27213A967F0B624577BF /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1308,9 +1317,9 @@
 				E6CFFE9917873FCB008ACEDC /* Measurement+MakeAndMod.m in Sources */,
 				E6883B9E1B95E3AB00F5A9A5 /* APCDataArchiveUploader.m in Sources */,
 				E60FC7921A12F5AB0036369F /* CMPopTipView.m in Sources */,
-				E61B0A521874F6E20081FFA5 /* ReferenceConverter.m in Sources */,
 				E6443C051B798072007DE110 /* IneligibleViewController.m in Sources */,
 				E64CE58E1B882443007105FB /* BridgeSignUpRKModule.m in Sources */,
+				654FAEAC1E6D2465005C5A53 /* CoinsByRegionPicker.m in Sources */,
 				E6A9B1311B4BFB4A009B3393 /* FollowupSurveyRKModule.m in Sources */,
 				E62A0D5C1BBA2A7A005FF87B /* DemoKLCPopupHelper.m in Sources */,
 				E6883B851B95D43E00F5A9A5 /* NSDate+Helper.m in Sources */,
@@ -1392,6 +1401,7 @@
 				E634434917E161BF00728FB6 /* Zone.m in Sources */,
 				E634434C17E161BF00728FB6 /* Mole.m in Sources */,
 				4BF5AADF1BA9833F0012B490 /* DashboardBiggestMoleCell.m in Sources */,
+				650DAD811E7DD2B8004DBA4A /* ReferenceObject.m in Sources */,
 				E64808191820E5D400A7E644 /* MeasurementComparsionViewController.m in Sources */,
 				E62A0D501BB500D0005FF87B /* MoleWasRemovedRKModule.m in Sources */,
 				E65CABB617ECF20100AAC5D3 /* UIImage+Extras.m in Sources */,
@@ -1502,9 +1512,8 @@
 		};
 		E6F93EA416DB273B0068B7B6 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5F2A2DAC151494DC5633C638 /* Pods.debug.xcconfig */;
+			baseConfigurationReference = 05FE3012FF68DEBE26A9C86F /* Pods-LeishMapper.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
@@ -1514,7 +1523,7 @@
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = D2YY7AW9H4;
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"<Multiple/**",
 					"values>/**",
@@ -1527,23 +1536,19 @@
 				INFOPLIST_FILE = "LeishMapper/LeishMapper-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.adaptiveaptitude.leishmapper;
 				PRODUCT_NAME = LeishMapper;
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
-				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/**";
-				"USER_HEADER_SEARCH_PATHS[arch=*]" = "$(SRCROOT)/**";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
 		};
 		E6F93EA516DB273B0068B7B6 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E0E2AD0012A56BE2CC311760 /* Pods.release.xcconfig */;
+			baseConfigurationReference = 25036E4E063855EE1505CD94 /* Pods-LeishMapper.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
@@ -1553,7 +1558,7 @@
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = D2YY7AW9H4;
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"<Multiple/**",
 					"values>/**",
@@ -1566,13 +1571,11 @@
 				INFOPLIST_FILE = "LeishMapper/LeishMapper-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.adaptiveaptitude.leishmapper;
 				PRODUCT_NAME = LeishMapper;
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
-				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/**";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

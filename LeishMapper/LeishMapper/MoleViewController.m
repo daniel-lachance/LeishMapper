@@ -44,7 +44,6 @@
 #import "VariableStore.h"
 #import "ScaledImageView.h"
 #import "ReferenceSetterViewController.h"
-#import "ReferenceConverter.h"
 #import "AppDelegate.h"
 #import "HelpMovieViewController.h"
 #import "CMPopTipView.h"
@@ -55,6 +54,7 @@
 #import "DemoKLCPopupHelper.h"
 #import "DashboardViewController.h"
 #import "DashboardModel.h"
+#import "ReferenceObject.h"
 
 @interface MoleViewController ()
 {
@@ -76,8 +76,7 @@
 
 @property (nonatomic, strong) MoleWasRemovedRKModule *removed;
 
-//Will take strings from the reference field and convert to an absolute diameter (in millimeters)
-@property (nonatomic, strong) ReferenceConverter *refConverter;
+@property (nonatomic) ReferenceObject *referenceObjectCoder;
 
 @end
 
@@ -117,17 +116,21 @@
     return _moleImageView;
 }
 
-//Converts the text which is user-friendly (has ' mm' for a label, etc) and converts to standard nomenclature recognized by Core Data
--(ReferenceConverter *)refConverter
+- (ReferenceObject *)referenceObjectCoder
 {
-    if (!_refConverter)
+    if (!_referenceObjectCoder)
     {
-        _refConverter = [[ReferenceConverter alloc] init];
+        if (self.measurement) {
+            _referenceObjectCoder = [[ReferenceObject alloc] initWithCode:self.measurement.referenceObject diameter:self.measurement.absoluteReferenceDiameter];
+        } else {
+            NSUserDefaults *standardUserDefaults = [NSUserDefaults standardUserDefaults];
+            NSString *defaultReferenceObject = [standardUserDefaults objectForKey:@"referenceObject"];
+            NSNumber *defaultReferenceDiameter = [standardUserDefaults objectForKey:@"referenceObjectDiameter"];
+            _referenceObjectCoder = [[ReferenceObject alloc] initWithCode:defaultReferenceObject diameter:defaultReferenceDiameter];
+        }
     }
-    return _refConverter;
+    return _referenceObjectCoder;
 }
-
-//By default, the absolute reference diameter is set to that of a dime
 
 #pragma mark - ViewController Life Cycle
 
@@ -203,18 +206,14 @@
 {
     [super viewWillAppear:animated];
     
-    //Must take into account changes in the reference that may have just been set in ReferenceSetterViewController
-    //Will always have a non-nil value because AppDelegate sets to the default of "Dime" and nil value not allowed in custom reference setter
-    NSUserDefaults *standardUserDefaults = [NSUserDefaults standardUserDefaults];
-    [self updateReferenceFieldWithReference:[standardUserDefaults objectForKey:@"referenceObject"]];
-    
     //Pull most recent measurement for this mole based on date of creation (initiated when the photo is taken)
     self.measurement = [Measurement getMostRecentMoleMeasurementForMole:self.mole withContext:self.context];
     
+    [self updateReferenceFieldWithReference:self.referenceObjectCoder.name];
+
     //Note: even if just taking a picture with the camera, a default measurement will be put in core data and saved
     if (self.measurement)
     {
-        [self updateReferenceFieldWithReference:self.measurement.referenceObject];
         [self createMeasurementToolsWithMeasurment:self.measurement];
         [self updateMoleSizeFromCurrentMeasurement];
     }
@@ -330,6 +329,7 @@
     [self.moleImageView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
     self.moleImage = nil;
     [self.popTipViewDemoButton dismissAnimated:YES];
+    self.referenceObjectCoder = nil;
 }
 
 #pragma mark - PopTip View
@@ -935,7 +935,7 @@ http://stackoverflow.com/questions/6821517/save-an-image-to-application-document
     //filePath = [filePath stringByAppendingString:@".png"];
     measurementName = [measurementName stringByReplacingOccurrencesOfString:@":" withString:@"colon"];
     
-    NSNumber *absoluteReferenceDiameter = [self.refConverter millimeterValueForReference:self.currentReference.titleLabel.text];
+    NSNumber *absoluteReferenceDiameter = self.referenceObjectCoder.diameter;
     
     //Create default mole measurement
     CGPoint screenCenter = [vars locationOfScreenCenterOnScrollView:self.scrollView atScale:self.scrollView.zoomScale];
@@ -966,7 +966,7 @@ http://stackoverflow.com/questions/6821517/save-an-image-to-application-document
                                          withMeasurementID:measurementName
                              withAbsoluteReferenceDiameter:absoluteReferenceDiameter
                                   withAbsoluteMoleDiameter:absoluteMoleDiameter
-                                       withReferenceObject:self.currentReference.titleLabel.text
+                                       withReferenceObject:self.referenceObjectCoder.code
                                     inManagedObjectContext:self.context];
     
     
@@ -1237,7 +1237,7 @@ http://stackoverflow.com/questions/6821517/save-an-image-to-application-document
 {
     if (self.measurement)
     {
-        NSNumber *absoluteReferenceDiameter = [self.refConverter millimeterValueForReference:self.currentReference.titleLabel.text];
+        NSNumber *absoluteReferenceDiameter = self.referenceObjectCoder.diameter;
         NSNumber *absoluteMoleDiameter =
         [Measurement calculateAbsoluteMoleDiameterFromMeasurementDiameter:[NSNumber numberWithFloat:self.moleMeasure.diameter]
                                                 withReferenceDiameter:[NSNumber numberWithFloat:self.referenceMeasure.diameter]
@@ -1320,13 +1320,10 @@ http://stackoverflow.com/questions/6821517/save-an-image-to-application-document
 
 -(void)saveMeasurementData
 {
-    //Take the reference in the reference field and alter it to fit a defined vocabulary
-    NSString *refObjectFormatted = [self.currentReference.titleLabel.text stringByReplacingOccurrencesOfString:@"Reference: " withString:@""];
-    
     //Save any measurement changes upon leaving the MoleViewController
     if (self.measurement)
     {
-        NSNumber *absoluteReferenceDiameter = [self.refConverter millimeterValueForReference:self.currentReference.titleLabel.text];
+        NSNumber *absoluteReferenceDiameter = self.referenceObjectCoder.diameter;
         NSNumber *absoluteMoleDiameter =
         [Measurement calculateAbsoluteMoleDiameterFromMeasurementDiameter:[NSNumber numberWithFloat:self.moleMeasure.diameter]
                                                     withReferenceDiameter:[NSNumber numberWithFloat:self.referenceMeasure.diameter]
@@ -1345,7 +1342,7 @@ http://stackoverflow.com/questions/6821517/save-an-image-to-application-document
                           withMeasurementID:self.measurement.measurementID
               withAbsoluteReferenceDiameter:absoluteReferenceDiameter
                    withAbsoluteMoleDiameter:absoluteMoleDiameter
-                        withReferenceObject:refObjectFormatted
+                        withReferenceObject:self.referenceObjectCoder.code
                      inManagedObjectContext:self.context];
     }
     
@@ -1363,7 +1360,8 @@ http://stackoverflow.com/questions/6821517/save-an-image-to-application-document
     }
     else if ([segue.identifier isEqualToString:@"segueToReference"])
     {
-        ReferenceSetterViewController *destVC = segue.destinationViewController;
+        UINavigationController *navVC = segue.destinationViewController;
+        ReferenceSetterViewController *destVC = [navVC viewControllers].firstObject;
         destVC.measurement = self.measurement;
         destVC.context = self.context;
     }
