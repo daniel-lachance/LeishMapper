@@ -579,7 +579,7 @@
 
 -(NSString *)emailTitleForZone:(Zone *)zone
 {
-    NSString *title = [NSString stringWithFormat:@"[Mole Mapper] %@",self.zoneTitle];
+    NSString *title = [NSString stringWithFormat:@"[Leish Mapper] %@",self.zoneTitle];
     return title;
 }
 
@@ -587,7 +587,7 @@
 {
     NSString *zoneData = [NSString stringWithFormat:@"Body Map Zone Name: %@\n",self.zoneTitle];
     NSSet *molesInZone = zone.moles;
-    NSString *moleNameList = [NSString stringWithFormat:@"Moles in %@ Zone:\n",self.zoneTitle];
+    NSString *moleNameList = [NSString stringWithFormat:@"Lesions in %@ Zone:\n",self.zoneTitle];
     for (Mole *mole in molesInZone)
     {
         moleNameList = [moleNameList stringByAppendingString:[NSString stringWithFormat:@"- %@\n",mole.moleName]];
@@ -851,7 +851,7 @@
 -(void)showDeleteZoneWarning
 {
     NSString *title = [NSString stringWithFormat:@"Are you sure you want to delete this zone photo?"];
-    UIAlertController *zoneSettings = [UIAlertController alertControllerWithTitle:title message:@"You will also lose all documented moles and measurements. This action cannot be undone." preferredStyle:UIAlertControllerStyleActionSheet];
+    UIAlertController *zoneSettings = [UIAlertController alertControllerWithTitle:title message:@"You will also lose all documented lesions and measurements. This action cannot be undone." preferredStyle:UIAlertControllerStyleActionSheet];
     
     UIAlertAction *delete = [UIAlertAction actionWithTitle:@"Delete Zone Photo" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
         [self deleteZonePhoto];

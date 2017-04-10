@@ -162,8 +162,9 @@
     NSString *emailTitle = [self emailTitleForMeasurement:currentMeasurement.moleMeasurement];
     NSString *messageBody = [self emailBodyForMeasurement:currentMeasurement.moleMeasurement];
     NSArray *toRecipents = [NSArray arrayWithObject:[self recipientForEmail]];
-    NSString *filePath = currentMeasurement.moleMeasurement.measurementID;
-    NSData *fileData = [NSData dataWithContentsOfFile:filePath];
+    //NSString *filePath = currentMeasurement.moleMeasurement.measurementID;
+    //NSData *fileData = [NSData dataWithContentsOfFile:filePath];
+    NSData *fileData = [Measurement rawPngDataForMeasurement:currentMeasurement.moleMeasurement];
     NSString *mimeType = @"image/png";
     NSString *fileName = @"filename";
     
@@ -179,7 +180,7 @@
 
 -(NSString *)emailTitleForMeasurement:(Measurement *)measurement
 {
-    NSString *title = [NSString stringWithFormat:@"[Mole Mapper] %@",measurement.whichMole.moleName];
+    NSString *title = [NSString stringWithFormat:@"[Leish Mapper] %@",measurement.whichMole.moleName];
     return title;
 }
 

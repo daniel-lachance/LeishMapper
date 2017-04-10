@@ -760,7 +760,7 @@
 
 -(NSString *)emailTitleForMeasurement:(Measurement *)measurement
 {
-    NSString *title = [NSString stringWithFormat:@"[Mole Mapper] %@",self.mole.moleName];
+    NSString *title = [NSString stringWithFormat:@"[Leish Mapper] %@",self.mole.moleName];
     return title;
 }
 
