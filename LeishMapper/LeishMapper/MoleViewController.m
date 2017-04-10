@@ -269,8 +269,7 @@
     //You are about to leave after your first measurement
     if ([ud objectForKey:@"showDemoInfo"] == [NSNumber numberWithBool:YES] && self.measurement)
     {
-        //Disabled because this is so highly specific for Mole Mapper-related function
-        //[self showMonitorPopup:self];
+        [self showMonitorPopup:self];
     }
     else
     {
@@ -548,7 +547,7 @@
 {
     UIView *contentView = [DemoKLCPopupHelper contentViewForDemo];
     NSString *headerText = @"Step 3: Monitor it";
-    NSString *descriptionText = @"Monitor this lesion by re-measuring it once a month.\n\nCheck the dashboard to see your progress and mole statistics";
+    NSString *descriptionText = @"Monitor this lesion by re-measuring it once a week.\n\nCheck the dashboard to see your progress and lesion statistics";
     UILabel *header = [DemoKLCPopupHelper labelForDemoWithFontSize:24.0 andText:headerText];
     UILabel *description = [DemoKLCPopupHelper labelForDemoWithFontSize:16.0 andText:descriptionText];
     UIImageView *demoImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"demoMonitor"]];
@@ -1023,16 +1022,17 @@ http://stackoverflow.com/questions/6821517/save-an-image-to-application-document
     UIAlertAction *delete = [UIAlertAction actionWithTitle:@"Delete Measurement from App" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
         [self deleteMole];
     }];
-    
-    UIAlertAction *moleWasRemoved = [UIAlertAction actionWithTitle:@"Lesion Removed by Doctor" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
-        [self moleWasRemoved];
-    }];
+
+//TODO: Commented-out 'removed by doctor' action since lesion heals over time (it can still be treated by doctor to speed healing so this may go back with survey).
+//    UIAlertAction *moleWasRemoved = [UIAlertAction actionWithTitle:@"Lesion Removed by Doctor" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
+//        [self moleWasRemoved];
+//    }];
     
     UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action){
         [self cancelMoleDeletion];
     }];
     
-    [deleteMole addAction:moleWasRemoved];
+//    [deleteMole addAction:moleWasRemoved];
     [deleteMole addAction:delete];
     [deleteMole addAction:cancel];
     
