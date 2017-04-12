@@ -39,8 +39,6 @@
 		4B856D9D1BC1BADA00998175 /* HelpCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B856D9B1BC1BADA00998175 /* HelpCollectionViewCell.m */; };
 		4B856D9E1BC1BADA00998175 /* HelpCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B856D9C1BC1BADA00998175 /* HelpCollectionViewCell.xib */; };
 		4B99E0D51BA9F575005B3B50 /* LeishMapper.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B99E0D41BA9F575005B3B50 /* LeishMapper.xcassets */; };
-		4B9EB56A1BB2802800560AC5 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B9EB5691BB2802800560AC5 /* CoreLocation.framework */; };
-		4B9EB5771BB2802D00560AC5 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B9EB5761BB2802D00560AC5 /* MapKit.framework */; };
 		4BC594DE1BAAD18E00255F6F /* AnimationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BC594DD1BAAD18E00255F6F /* AnimationManager.m */; };
 		4BD05B3F1BC2796C00FD6D85 /* InvolveCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BD05B3D1BC2796C00FD6D85 /* InvolveCollectionViewCell.m */; };
 		4BD05B401BC2796C00FD6D85 /* InvolveCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BD05B3E1BC2796C00FD6D85 /* InvolveCollectionViewCell.xib */; };
@@ -534,8 +532,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E62A0D4B1BB4E3E5005FF87B /* CMSSupport.framework in Frameworks */,
-				4B9EB5771BB2802D00560AC5 /* MapKit.framework in Frameworks */,
-				4B9EB56A1BB2802800560AC5 /* CoreLocation.framework in Frameworks */,
 				E6883B971B95DA9500F5A9A5 /* libc++.dylib in Frameworks */,
 				E6FDF8591B882B7300EE7037 /* BridgeSDK.framework in Frameworks */,
 				E6FC804D1AF8567400C460E9 /* HealthKit.framework in Frameworks */,

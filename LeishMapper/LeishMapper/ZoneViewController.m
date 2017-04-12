@@ -929,15 +929,16 @@
         [self deleteMole];
     }];
     
-    UIAlertAction *moleWasRemoved = [UIAlertAction actionWithTitle:@"Lesion Removed by Doctor" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
-        [self moleWasRemoved];
-    }];
+    //TODO: Commented-out 'removed by doctor' action since lesion heals over time (it can still be treated by doctor to speed healing so this may go back with survey).
+//    UIAlertAction *moleWasRemoved = [UIAlertAction actionWithTitle:@"Lesion Removed by Doctor" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
+//        [self moleWasRemoved];
+//    }];
     
     UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action){
         [self cancelMoleDeletion];
     }];
     
-    [deleteMole addAction:moleWasRemoved];
+//    [deleteMole addAction:moleWasRemoved];
     [deleteMole addAction:delete];
     [deleteMole addAction:cancel];
     

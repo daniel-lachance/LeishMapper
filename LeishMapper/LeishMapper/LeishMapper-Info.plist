@@ -35,10 +35,10 @@
 	</dict>
 	<key>NSCameraUsageDescription</key>
 	<string>Use the camera to take pictures of lesions.</string>
-	<key>NSLocationAlwaysUsageDescription</key>
-	<string></string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>We would like to use your location to display the UV Index forecast in your area.</string>
+	<key>NSHealthShareUsageDescription</key>
+	<string>May ask for your date of birth and gender for research study survey.</string>
+	<key>NSHealthUpdateUsageDescription</key>
+	<string>Does not update your health data.</string>
 	<key>UIMainStoryboardFile</key>
 	<string>MainStoryboard</string>
 	<key>UIPrerenderedIcon</key>
