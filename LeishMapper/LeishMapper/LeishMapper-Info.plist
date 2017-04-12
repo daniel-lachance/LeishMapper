@@ -39,6 +39,10 @@
 	<string>May ask for your date of birth and gender for research study survey.</string>
 	<key>NSHealthUpdateUsageDescription</key>
 	<string>Does not update your health data.</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Part of ResearchKit, but not used by LeishMapper.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>LeishMapper stores lesion photos on your device.</string>
 	<key>UIMainStoryboardFile</key>
 	<string>MainStoryboard</string>
 	<key>UIPrerenderedIcon</key>
