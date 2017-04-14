@@ -92,14 +92,27 @@
     UIImage *rawImage;
     if (!_moleImage)
     {
-        rawImage = [Measurement imageForMeasurement:self.measurement];
-        CGImageRef cgref = [rawImage CGImage];
-        CIImage *cim = [rawImage CIImage];
-        if (cim == nil && cgref == NULL)
+
+#pragma WARNING: DEMO ONLY! REMOVE BEFORE RELEASE
+        if ([self.zoneID isEqualToString:@"1801"])
         {
-            //if nothing from core data, then load up the default
-            rawImage = [UIImage imageNamed:@"measurementNoPhoto.png"];
+            rawImage = [UIImage imageNamed:@"betaDemoMeasurePhoto"];
         }
+#pragma WARNING: DEMO ONLY! REMOVE BEFORE RELEASE
+        else
+        {
+            rawImage = [Measurement imageForMeasurement:self.measurement];
+            CGImageRef cgref = [rawImage CGImage];
+            CIImage *cim = [rawImage CIImage];
+            if (cim == nil && cgref == NULL)
+            {
+                //if nothing from core data, then load up the default
+                rawImage = [UIImage imageNamed:@"measurementNoPhoto.png"];
+            }
+            
+#pragma WARNING: DEMO ONLY! REMOVE BEFORE RELEASE
+        }
+        
     }
     CGRect screenRect = [[UIScreen mainScreen] bounds];
     CGFloat screenWidth = screenRect.size.width;

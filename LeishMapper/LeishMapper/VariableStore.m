@@ -137,6 +137,14 @@
 -(BOOL)imageFileExistsForZoneID:(NSString *)zoneID
 {
     BOOL fileExists;
+
+#pragma WARNING: DEMO ONLY! REMOVE BEFORE RELEASE
+    if ([zoneID isEqualToString:@"1801"])
+    {
+        return YES;
+    }
+#pragma WARNING: DEMO ONLY! REMOVE BEFORE RELEASE
+    
     if ([zoneID isEqualToString:@"1100"] || [zoneID isEqualToString:@"2100"]) {  // If the zoneID is Head(front view) or Head(back view)...
         fileExists = YES;
     } else {
