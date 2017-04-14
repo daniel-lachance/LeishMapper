@@ -53,6 +53,14 @@
     {
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://www.cdc.gov/parasites/leishmaniasis/gen_info/faqs.html"]];
     }
+    if (indexPath.section == 1)
+    {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://www.who.int/leishmaniasis/en/"]];
+    }
+    if (indexPath.section == 2)
+    {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://www.visualdx.com/how-it-works#world-s-best-medical-image-library"]];
+    }
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
