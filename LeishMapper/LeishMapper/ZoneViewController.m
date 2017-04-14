@@ -99,19 +99,34 @@
 {
     if (!_zoneImage)
     {
-        //Check to see if there is a valid image loaded up from Core Data
-        _zoneImage = [Zone imageForZoneName:self.zoneID];
-        if (self.hasValidImageData == NO)
+#pragma WARNING: DEMO ONLY! REMOVE BEFORE RELEASE
+        if ([self.zoneID isEqualToString:@"1801"])
         {
             _zoneImage = nil;
-            //[self openCamera:self]; Not compatible with other elements popping up
-            //if nothing from core data, then load up the default
-            UIImage *rawImage = [UIImage imageNamed:@"zoneNoPhoto.png"];
+            UIImage *rawImage = [UIImage imageNamed:@"betaDemoZonePhoto.png"];
             CGRect screenRect = [[UIScreen mainScreen] bounds];
             CGFloat screenWidth = screenRect.size.width;
             CGFloat screenHeight = screenRect.size.height;
             _zoneImage = [rawImage imageByScalingProportionallyToSize:CGSizeMake(screenWidth, screenHeight)];
             
+        }
+#pragma WARNING: DEMO ONLY! REMOVE BEFORE RELEASE
+        else
+        {
+            //Check to see if there is a valid image loaded up from Core Data
+            _zoneImage = [Zone imageForZoneName:self.zoneID];
+            if (self.hasValidImageData == NO)
+            {
+                _zoneImage = nil;
+                //[self openCamera:self]; Not compatible with other elements popping up
+                //if nothing from core data, then load up the default
+                UIImage *rawImage = [UIImage imageNamed:@"zoneNoPhoto.png"];
+                CGRect screenRect = [[UIScreen mainScreen] bounds];
+                CGFloat screenWidth = screenRect.size.width;
+                CGFloat screenHeight = screenRect.size.height;
+                _zoneImage = [rawImage imageByScalingProportionallyToSize:CGSizeMake(screenWidth, screenHeight)];
+            }
+
         }
     }
     return _zoneImage;
